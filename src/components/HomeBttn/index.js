@@ -1,13 +1,9 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 
 const HomeBttn = (props) => {
-
-    const navigation = useNavigation();
-
     return (
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(`${props.link}`)}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('')}>
             <View style={styles.topSection}>
                 <Text style={styles.tittle}>{props.tittle}</Text>
             </View>
