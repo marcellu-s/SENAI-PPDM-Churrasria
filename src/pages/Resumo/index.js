@@ -1,14 +1,21 @@
 import { View, Text, ScrollView, StyleSheet, SafeAreaView } from "react-native";
 
-export default function Resumo () {
-    return(
+export default function Resumo() {
+
+    return (
         <SafeAreaView style={styles.container}>
-            <View>
-                <Text style={styles.title}>Resumo</Text>
-            </View>
+            <ScrollView>
+                <View>
+                    <Text style={styles.title}>Resumo</Text>
+                </View>
+                <View>
+                    <Text style={styles.subtitulo}>Itens:</Text>
+                    <Text style={styles.subtitulo}>Valor R$</Text>
+                </View>
+            </ScrollView>
         </SafeAreaView>
     );
-    
+
 }
 const styles = StyleSheet.create({
     container: {
