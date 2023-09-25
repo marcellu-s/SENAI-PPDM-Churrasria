@@ -21,8 +21,7 @@ export default function App() {
                     </View>
                 </View>
                 <View style={styles.main}>
-                    <HomeBttn tittle="Calcular Churrasco"></HomeBttn>
-                    <HomeBttn tittle="Receitas"></HomeBttn>
+                    <HomeBttn tittle="Calcular Churrasco" link="Calcular" description="Saiba o gasto com suprimentos ao se preparar um churrasco"></HomeBttn>
                 </View>
             </View>
             <StatusBar style="auto" />
