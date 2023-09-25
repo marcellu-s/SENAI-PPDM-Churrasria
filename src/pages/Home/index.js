@@ -3,6 +3,8 @@ import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
 import { Camera } from 'lucide-react-native';
 
+import HomeBttn from '../../components/HomeBttn';
+
 export default function App() {
 
     return (
@@ -17,6 +19,10 @@ export default function App() {
                     <View style={{ width: 75, height: 10, backgroundColor: '#EF233C'}}>
                         <Text></Text>
                     </View>
+                </View>
+                <View style={styles.main}>
+                    <HomeBttn tittle="Calcular Churrasco"></HomeBttn>
+                    <HomeBttn tittle="Receitas"></HomeBttn>
                 </View>
             </View>
             <StatusBar style="auto" />
@@ -44,5 +50,10 @@ const styles = StyleSheet.create({
         fontSize: 28,
         fontWeight: 'bold',
         width: '100%',
+    },
+
+    main: {
+        paddingTop: 130,
+        paddingHorizontal: 13,
     },
 });
