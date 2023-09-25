@@ -12,7 +12,7 @@ const HomeBttn = (props) => {
                 <Text style={styles.tittle}>{props.tittle}</Text>
             </View>
             <View style={styles.bottomPart}>
-                <Text style={styles.description}>Descrição</Text>
+                <Text style={styles.description}>{props.description}</Text>
                 <Text style={styles.arrow}>&gt;</Text>
             </View>
         </TouchableOpacity>

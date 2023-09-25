@@ -1,4 +1,4 @@
-const lista = {
+export const lista = {
     Cortes: 
     {
         'linguiça': 17.49, 'picanha Suína': 26.98, 'panceta': 25.98, 'coração': 34.69, 'coxinha da Asa': 13.99, 'coxa e sobrecoxa desossada': 12.99, 'picanha Bovina': 62.99, 'fraldinha': 42.39, 'alcatra': 45.99, 'contra Filé': 45.39,
@@ -18,7 +18,61 @@ const lista = {
 
 }
 
-const receitaria = {
+export const listaCortes = [
+    {
+        id: 'c1', nome: 'Linguiça', preço: 17.49, check: false
+    },
+    {
+        id: 'c2', nome: 'Picanha Suína', preço: 26.98, check: false
+    },
+    {
+        id: 'c3', nome: 'Panceta', preço: 25.98, check: false
+    },
+    {
+        id: 'c4', nome: 'Coração', preço: 34.69, check: false
+    },
+    {
+        id: 'c5', nome: 'Coxinha da Asa', preço: 13.99, check: false
+    },
+    {
+        id: 'c6', nome: 'Coxa e Sobrecoxa Desossada', preço: 12.99, check: false
+    },
+    {
+        id: 'c7', nome: 'Fraldinha', preço: 42.39, check: false
+    },
+    {
+        id: 'c8', nome: 'Picanha Bovina', preço: 62.99, check: false
+    },
+    {
+        id: 'c9', nome: 'Alcatra', preço: 45.99, check: false
+    },
+    {
+        id: 'c10', nome: 'Contra Filé', preço: 45.39, check: false
+    },
+];
+
+export const listaAcompanhamento = [
+    {
+        id: 'a1', nome: 'Pão de Alho', preço: 12.98, check: false
+    },
+    {
+        id: 'a2', nome: 'Queijo Coalho', preço: 23.98, check: false
+    },
+    {
+        id: 'a3', nome: 'Farofa pronta', preço: 10.98, check: false
+    },
+    {
+        id: 'a4', nome: 'Pão Francês', preço: 20.00, check: false
+    },
+    {
+        id: 'a5', nome: 'Arroz', preço: 20.00, check: false
+    },
+    {
+        id: 'a6', nome: 'Salada de maionese', preço: 20.97, check: false
+    },
+];
+
+export const receitaria = {
     linguiça: {
         'id': 1, 'título': 'APERITIVO DE LINGUIÇA TOSCANA E MUÇARELA DEFUMADA', 'dificuldade': 'iniciante', 'tempo': 30, 'rendimento': 15, 'ingrediente': ['700 g de Linguiça Toscana Swift','colheres (sopa) de Ervas Finas Swift (10 g)','colher (sopa) de Alho Picado Swift (10 g)','xícara (chá) de Farofa Apimentada Swift (100 g)','3 espetos de Espetinho de Queijo Mussarela Bolinha Defumada Swift (186 g)'], 'modo de preparo': ['Retire o recheio da linguiça e coloque no multiprocessador.','Coloque as ervas, o alho e a farofa. Processe até formar uma massa homogênea.','Refrigere por 30 minutos antes de usar.','Retire a muçarela dos espetos.','Divida a massa de linguiça em 15 porções.','Abra a porção de linguiça na palma da mão, coloque o queijo no centro e feche bem, em formato de bolinhas. Faça isso com todas as bolinhas de muçarela.','Na grelha de churrasqueira, em brasa média, doure todos os lados das bolinhas.'], 'image': 'https://swiftbr.vteximg.com.br/arquivos/aperitivo-de-linguica-toscana-e-mucarela-defumada.jpg'
      },
