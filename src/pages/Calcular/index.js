@@ -3,6 +3,8 @@ import { View, Text, SafeAreaView, StyleSheet, ScrollView, TouchableOpacity } fr
 import { CheckBox } from "@rneui/themed";
 import { Participantes } from "../../components/Participantes";
 import { listaAcompanhamento, listaCortes } from "../Services";
+import ModalReceita from "../../components/ModalReceita/index"
+
 
 export default function Calcular() {
 
