@@ -2,8 +2,8 @@ import { useState } from "react";
 import { View, Text, SafeAreaView, StyleSheet, ScrollView, TouchableOpacity } from "react-native";
 import { CheckBox } from "@rneui/themed";
 import { Participantes } from "../../components/Participantes";
-import { listaAcompanhamento, listaCortes } from "../Services";
-import ModalReceita from "../../components/ModalReceita/index"
+import { listaAcompanhamento, listaCortes, listaSuprimento, listaBebidas } from "../Services";
+// import ModalReceita from "../../components/ModalReceita/index"
 
 
 export default function Calcular() {
@@ -12,32 +12,64 @@ export default function Calcular() {
     const [ mulher, setMulher ] = useState(0);
     const [ crianca, setCrianca ] = useState(0);
 
-    const [ linguica, setLinguica ] = useState(listaCortes[0]),
-    [ picanhaSuina, setPicanhaSuina ] = useState(listaCortes[1]),
-    [ panceta, setPanceta ] = useState(listaCortes[2]),
-    [ coracao, setCoracao ] = useState(listaCortes[3]),
-    [ coxinha, setCoxinha ] = useState(listaCortes[4]),
-    [ coxa, setCoxa ] = useState(listaCortes[5]),
-    [ fraldinha, setFraldinha ] = useState(listaCortes[6]),
-    [ picanhaBovina, setPicanhaBovina ] = useState(listaCortes[7]),
-    [ alcatra, setAlcatra ] = useState(listaCortes[8]),
-    [ contra, setContra ] = useState(listaCortes[9])
+    const [ cortes, setCortes ] = useState(listaCortes);
+    let cortesTemp = listaCortes;
 
-    const [ paoAlho, setPaoAlho ] = useState(listaAcompanhamento[0]),
-    [ queijo, setQueijo ] = useState(listaAcompanhamento[1]),
-    [ farofa, setFarofa ] = useState(listaAcompanhamento[2]),
-    [ paoFrances, setPaoFrances ] = useState(listaAcompanhamento[3]),
-    [ arroz, setArroz ] = useState(listaAcompanhamento[4]),
-    [ saladaMaionese, setSaladaMaionese ] = useState(listaAcompanhamento[5])
+    const [ acompanhamento, setAcompanhamento ] = useState(listaAcompanhamento);
+    let acompanhamentoTemp = listaAcompanhamento;
 
-    function toggleCheckbox(state, setState) {
+    const [ suprimento, setSuprimento ] = useState(listaSuprimento);
+    let suprimentoTemp = listaSuprimento;
 
-        setState({
-            "check": !state.check,
-            "id": state.id,
-            "nome": state.nome,
-            'preço': state.preço
-        });
+    const [ bebida, setBebida ] = useState(listaBebidas);
+    let bebidaTemp = listaBebidas;
+
+    function toggleCheckbox(id, lista) {
+
+        if (lista == 'cortes') {
+
+            setCortes(cortesTemp.map((data) => {
+
+                if (data.id == id) {
+    
+                    data.check = !data.check;
+                }
+    
+                return data;
+            }));
+        } else if (lista == 'acompanhamento') {
+
+            setAcompanhamento(acompanhamentoTemp.map((data) => {
+
+                if (data.id == id) {
+    
+                    data.check = !data.check;
+                }
+    
+                return data;
+            }));
+        } else if (lista == 'suprimento') {
+            setSuprimento(suprimentoTemp.map((data) => {
+
+                if (data.id == id) {
+    
+                    data.check = !data.check;
+                }
+    
+                return data;
+            }));
+        } else if (lista == 'bebida') {
+            setSuprimento(suprimentoTemp.map((data) => {
+
+                if (data.id == id) {
+    
+                    data.check = !data.check;
+                }
+    
+                return data;
+            }));
+        }
+        
     };
 
     return(
@@ -58,75 +90,61 @@ export default function Calcular() {
                     </View>
                     <View>
                         <Text style={styles.subtitle}>1. Quais cortes serão servidos?</Text>
-                        <View style={styles.option}>
-                            <CheckBox key={linguica.id} onPress={() => {toggleCheckbox(linguica, setLinguica)}} checked={linguica.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={linguica.nome} size={32} />
-                            <TouchableOpacity style={styles.optionBtn}>
-                                <Text style={{color: '#fff'}}>Receita &gt;</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.option}>
-                        <CheckBox key={picanhaSuina.id} onPress={() => toggleCheckbox(picanhaSuina, setPicanhaSuina)} checked={picanhaSuina.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={picanhaSuina.nome} size={32} />
-                            <TouchableOpacity style={styles.optionBtn}>
-                                <Text style={{color: '#fff'}}>Receita &gt;</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.option}>
-                            <CheckBox key={panceta.id} onPress={() => toggleCheckbox(panceta, setPanceta)} checked={panceta.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={panceta.nome} size={32} />
-                            <TouchableOpacity style={styles.optionBtn}>
-                                <Text style={{color: '#fff'}}>Receita &gt;</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.option}>
-                            <CheckBox key={coracao.id} onPress={() => toggleCheckbox(coracao, setCoracao)} checked={coracao.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={coracao.nome} size={32} />
-                            <TouchableOpacity style={styles.optionBtn}>
-                                <Text style={{color: '#fff'}}>Receita &gt;</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.option}>
-                            <CheckBox key={coxinha.id} onPress={() => toggleCheckbox(coxinha, setCoxinha)} checked={coxinha.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={coxinha.nome} size={32} />
-                            <TouchableOpacity style={styles.optionBtn}>
-                                <Text style={{color: '#fff'}}>Receita &gt;</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.option}>
-                            <CheckBox key={coxa.id} onPress={() => toggleCheckbox(coxa, setCoxa)} checked={coxa.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={coxa.nome} size={32} />
-                            <TouchableOpacity style={styles.optionBtn}>
-                                <Text style={{color: '#fff'}}>Receita &gt;</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.option}>
-                            <CheckBox key={fraldinha.id} onPress={() => toggleCheckbox(fraldinha, setFraldinha)} checked={fraldinha.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={fraldinha.nome} size={32} />
-                            <TouchableOpacity style={styles.optionBtn}>
-                                <Text style={{color: '#fff'}}>Receita &gt;</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.option}>
-                            <CheckBox key={picanhaBovina.id} onPress={() => toggleCheckbox(picanhaBovina, setPicanhaBovina)} checked={picanhaBovina.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={picanhaBovina.nome} size={32} />
-                            <TouchableOpacity style={styles.optionBtn}>
-                                <Text style={{color: '#fff'}}>Receita &gt;</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.option}>
-                            <CheckBox key={alcatra.id} onPress={() => toggleCheckbox(alcatra, setAlcatra)} checked={alcatra.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={alcatra.nome} size={32} />
-                            <TouchableOpacity style={styles.optionBtn}>
-                                <Text style={{color: '#fff'}}>Receita &gt;</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.option}>
-                            <CheckBox key={contra.id} onPress={() => toggleCheckbox(contra, setContra)} checked={contra.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={contra.nome} size={32} />
-                            <TouchableOpacity style={styles.optionBtn}>
-                                <Text style={{color: '#fff'}}>Receita &gt;</Text>
-                            </TouchableOpacity>
-                        </View>
+                        {
+                            cortes.map((item) => {
+                                return(
+                                    <View key={item.id} style={styles.option}>
+                                        <CheckBox checked={item.check} onPress={() => toggleCheckbox(item.id, 'cortes')} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={item.nome} size={32} />
+                                        <Text>R$ {item.preco}</Text>
+                                        <TouchableOpacity style={styles.optionBtn}>
+                                            <Text style={{color: '#fff'}}>Receita &gt;</Text>
+                                        </TouchableOpacity>
+                                    </View>
+                                )
+                            })
+                        }
                     </View>
                     <View>
                         <Text style={styles.subtitle}>3. Acompanhamentos</Text>
-                        <CheckBox key={paoAlho.id} onPress={() => {toggleCheckbox(paoAlho, setPaoAlho)}} checked={paoAlho.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={paoAlho.nome} size={32} />
-                        <CheckBox key={queijo.id} onPress={() => toggleCheckbox(queijo, setQueijo)} checked={queijo.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={queijo.nome} size={32} />
-                        <CheckBox key={farofa.id} onPress={() => toggleCheckbox(farofa, setFarofa)} checked={farofa.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={farofa.nome} size={32} />
-                        <CheckBox key={paoFrances.id} onPress={() => toggleCheckbox(paoFrances, setPaoFrances)} checked={paoFrances.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={paoFrances.nome} size={32} />
-                        <CheckBox key={arroz.id} onPress={() => toggleCheckbox(arroz, setArroz)} checked={arroz.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={arroz.nome} size={32} />
-                        <CheckBox key={saladaMaionese.id} onPress={() => toggleCheckbox(saladaMaionese, setSaladaMaionese)} checked={saladaMaionese.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={saladaMaionese.nome} size={32} />
+                        {
+                            acompanhamento.map((item) => {
+                                return(
+                                    <View key={item.id} style={styles.option}>
+                                        <CheckBox key={item.id} onPress={() => {toggleCheckbox(item.id, 'acompanhamento')}} checked={item.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={item.nome} size={32} />
+                                        <Text>R$ {item.preco}</Text>
+                                    </View>
+    
+                                )
+                            })
+                        }
+                    </View>
+                    <View>
+                        <Text style={styles.subtitle}>4. Suprimentos</Text>
+                        {
+                            suprimento.map((item) => {
+                                return(
+                                    <View key={item.id} style={styles.option}>
+                                        <CheckBox key={item.id} onPress={() => {toggleCheckbox(item.id, 'suprimento')}} checked={item.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={item.nome} size={32} />
+                                        <Text>R$ {item.preco}</Text>
+                                    </View>
+    
+                                )
+                            })
+                        }
+                    </View>
+                    <View>
+                        <Text style={styles.subtitle}>5. Bebidas</Text>
+                        {
+                            bebida.map((item) => {
+                                return(
+                                    <View key={item.id} style={styles.option}>
+                                        <CheckBox key={item.id} onPress={() => {toggleCheckbox(item.id, 'bebida')}} checked={item.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={item.nome} size={32} />
+                                        <Text>R$ {item.preco}</Text>
+                                    </View>
+    
+                                )
+                            })
+                        }
                     </View>
                 </View>
             </ScrollView>

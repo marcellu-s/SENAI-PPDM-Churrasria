@@ -1,73 +1,91 @@
-export const lista = {
-    Cortes: 
-    {
-        'linguiça': 17.49, 'picanha Suína': 26.98, 'panceta': 25.98, 'coração': 34.69, 'coxinha da Asa': 13.99, 'coxa e sobrecoxa desossada': 12.99, 'picanha Bovina': 62.99, 'fraldinha': 42.39, 'alcatra': 45.99, 'contra Filé': 45.39,
-    },
-    Acompanhamentos:
-    {
-        'pão de alho': 12.98, 'queijo coalho': 23.98, 'farofa pronta': 10.98, 'pão': 20.00, 'vinagrete': 20.97, 'arroz': 20.00,
-    },
-    Suprimento:
-    {
-        'carvão': 37.99, 'copos': 6.49, 'guardanapos': 2.49, 'pratos': 3.39, 'talheres': 10.99, 'fósforos/acendedores': 3.49,
-    },
-    Bebidas:
-    {
-        'refrigerante': 6.89, 'suco': 10.94, 'cerveja': 3.19, 'água': 2.99, 'chá gelado': 6.69,
-    },
-}
 
 export const listaCortes = [
     {
-        id: 'c1', nome: 'Linguiça', preço: 17.49, check: false
+        id: 'c1', nome: 'Linguiça', preco: 17.49, check: false
     },
     {
-        id: 'c2', nome: 'Picanha Suína', preço: 26.98, check: false
+        id: 'c2', nome: 'Picanha Suína', preco: 26.98, check: false
     },
     {
-        id: 'c3', nome: 'Panceta', preço: 25.98, check: false
+        id: 'c3', nome: 'Panceta', preco: 25.98, check: false
     },
     {
-        id: 'c4', nome: 'Coração', preço: 34.69, check: false
+        id: 'c4', nome: 'Coração', preco: 34.69, check: false
     },
     {
-        id: 'c5', nome: 'Coxinha da Asa', preço: 13.99, check: false
+        id: 'c5', nome: 'Coxinha da Asa', preco: 13.99, check: false
     },
     {
-        id: 'c6', nome: 'Coxa e Sobrecoxa Desossada', preço: 12.99, check: false
+        id: 'c6', nome: 'Coxa e Sobrecoxa Desossada', preco: 12.99, check: false
     },
     {
-        id: 'c7', nome: 'Fraldinha', preço: 42.39, check: false
+        id: 'c7', nome: 'Fraldinha', preco: 42.39, check: false
     },
     {
-        id: 'c8', nome: 'Picanha Bovina', preço: 62.99, check: false
+        id: 'c8', nome: 'Picanha Bovina', preco: 62.99, check: false
     },
     {
-        id: 'c9', nome: 'Alcatra', preço: 45.99, check: false
+        id: 'c9', nome: 'Alcatra', preco: 45.99, check: false
     },
     {
-        id: 'c10', nome: 'Contra Filé', preço: 45.39, check: false
+        id: 'c10', nome: 'Contra Filé', preco: 45.39, check: false
     },
 ];
 
 export const listaAcompanhamento = [
     {
-        id: 'a1', nome: 'Pão de Alho', preço: 12.98, check: false
+        id: 'a1', nome: 'Pão de Alho', preco: 12.98, check: false
     },
     {
-        id: 'a2', nome: 'Queijo Coalho', preço: 23.98, check: false
+        id: 'a2', nome: 'Queijo Coalho', preco: 23.98, check: false
     },
     {
-        id: 'a3', nome: 'Farofa pronta', preço: 10.98, check: false
+        id: 'a3', nome: 'Farofa pronta', preco: 10.98, check: false
     },
     {
-        id: 'a4', nome: 'Pão Francês', preço: 20.00, check: false
+        id: 'a4', nome: 'Pão Francês', preco: 20.00, check: false
     },
     {
-        id: 'a5', nome: 'Arroz', preço: 20.00, check: false
+        id: 'a5', nome: 'Arroz', preco: 20.00, check: false
     },
     {
-        id: 'a6', nome: 'Salada de maionese', preço: 20.97, check: false
+        id: 'a6', nome: 'Salada de maionese', preco: 20.97, check: false
+    },
+];
+
+export const listaSuprimento = [
+    {
+        id: 's1', nome: 'Carvão', preco: 37.99, check: false
+    },
+    {
+        id: 's2', nome: 'Copos', preco: 6.49, check: false
+    },
+    {
+        id: 's3', nome: 'Guardanapos', preco: 2.49, check: false
+    },
+    {
+        id: 's4', nome: 'Pratos descartáveis', preco: 3.39, check: false
+    },
+    {
+        id: 's5', nome: 'Talheres', preco: 10.99, check: false
+    },
+    {
+        id: 's6', nome: 'Fósforos/ascendedores', preco: 3.49, check: false
+    },
+];
+
+export const listaBebidas = [
+    {
+        id: 'b1', nome: 'Refrigerante', preco: 6.89, check: false
+    },
+    {
+        id: 'b2', nome: 'Suco', preco: 10.94, check: false
+    },
+    {
+        id: 'b3', nome: 'Cerveja', preco: 3.19, check: false
+    },
+    {
+        id: 'b4', nome: 'Água', preco: 2.99, check: false
     },
 ];
 
