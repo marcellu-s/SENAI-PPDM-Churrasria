@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { View, Text, SafeAreaView, StyleSheet, ScrollView, TouchableOpacity } from "react-native";
+import { View, Text, SafeAreaView, StyleSheet, ScrollView, TouchableOpacity, Modal, Image } from "react-native";
 import { CheckBox } from "@rneui/themed";
 import { Participantes } from "../../components/Participantes";
-import { listaAcompanhamento, listaCortes, listaSuprimento, listaBebidas } from "../Services";
-// import ModalReceita from "../../components/ModalReceita/index"
+import { listaAcompanhamento, listaCortes, listaSuprimento, listaBebidas, modalDataria, receitaria } from "../Services";
 
 
 export default function Calcular() {
@@ -59,7 +58,7 @@ export default function Calcular() {
                 return data;
             }));
         } else if (lista == 'bebida') {
-            setSuprimento(suprimentoTemp.map((data) => {
+            setBebida(bebidaTemp.map((data) => {
 
                 if (data.id == id) {
     
@@ -71,6 +70,30 @@ export default function Calcular() {
         }
         
     };
+
+    
+    function pegarTodosDados() {
+
+        let todosDados = {
+            dadosCortes: cortes.filter((item) => item.check == true),
+            dadosAcompanhamento: acompanhamento.filter((item) => item.check == true),
+            dadosSuprimentos: suprimento.filter((item) => item.check == true),
+            dadosBebidas: bebida.filter((item) => item.check == true),
+            totalHomem: homem,
+            totalMulher: mulher,
+            totalCriança: crianca,
+        };
+    }
+
+    const [modalVisibility, setVisibility] = useState(false);
+    const [modalData, setModalData] = useState(receitaria['Linguiça']);
+
+    function showModal(data) {
+
+        setVisibility(true);
+
+        setModalData(data);
+    }
 
     return(
         <SafeAreaView style={styles.container}>
@@ -96,7 +119,7 @@ export default function Calcular() {
                                     <View key={item.id} style={styles.option}>
                                         <CheckBox checked={item.check} onPress={() => toggleCheckbox(item.id, 'cortes')} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={item.nome} size={32} />
                                         <Text>R$ {item.preco}</Text>
-                                        <TouchableOpacity style={styles.optionBtn}>
+                                        <TouchableOpacity style={styles.optionBtn} onPress={() => showModal(receitaria[item.nome])}>
                                             <Text style={{color: '#fff'}}>Receita &gt;</Text>
                                         </TouchableOpacity>
                                     </View>
@@ -110,7 +133,7 @@ export default function Calcular() {
                             acompanhamento.map((item) => {
                                 return(
                                     <View key={item.id} style={styles.option}>
-                                        <CheckBox key={item.id} onPress={() => {toggleCheckbox(item.id, 'acompanhamento')}} checked={item.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={item.nome} size={32} />
+                                        <CheckBox  onPress={() => {toggleCheckbox(item.id, 'acompanhamento')}} checked={item.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={item.nome} size={32} />
                                         <Text>R$ {item.preco}</Text>
                                     </View>
     
@@ -124,7 +147,7 @@ export default function Calcular() {
                             suprimento.map((item) => {
                                 return(
                                     <View key={item.id} style={styles.option}>
-                                        <CheckBox key={item.id} onPress={() => {toggleCheckbox(item.id, 'suprimento')}} checked={item.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={item.nome} size={32} />
+                                        <CheckBox onPress={() => {toggleCheckbox(item.id, 'suprimento')}} checked={item.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={item.nome} size={32} />
                                         <Text>R$ {item.preco}</Text>
                                     </View>
     
@@ -138,7 +161,7 @@ export default function Calcular() {
                             bebida.map((item) => {
                                 return(
                                     <View key={item.id} style={styles.option}>
-                                        <CheckBox key={item.id} onPress={() => {toggleCheckbox(item.id, 'bebida')}} checked={item.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={item.nome} size={32} />
+                                        <CheckBox onPress={() => {toggleCheckbox(item.id, 'bebida')}} checked={item.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={item.nome} size={32} />
                                         <Text>R$ {item.preco}</Text>
                                     </View>
     
@@ -147,6 +170,68 @@ export default function Calcular() {
                         }
                     </View>
                 </View>
+                <View>
+                    <TouchableOpacity style={{width: '100%', backgroundColor: '#EF233C', padding: 5, borderRadius: 8}} onPress={() => pegarTodosDados()}>
+                        <Text style={{fontSize: 32, color: '#fff', textAlign: 'center'}}>CALCULAR</Text>
+                    </TouchableOpacity>
+                </View>
+                <Modal animationType="slide" transparent={true} visible={modalVisibility}>
+                    <View style={stylesModal.modalContainer}>
+                        <ScrollView>
+                            <View style={stylesModal.upperPart}>
+                                <Text style={{fontSize: 24, flex: 8}}>{modalData.titulo}</Text>
+                                <TouchableOpacity style={{flex: 1}} onPress={() => setVisibility(false)}>
+                                    <Text style={{fontSize: 25, color: 'red', fontWeight: '800'}}>x</Text>
+                                </TouchableOpacity>
+                            </View>
+                            <View style={stylesModal.midPart}>
+                                <Image source={{uri: String(modalData.image)}} style={stylesModal.midImage} />
+                                <View style={stylesModal.midInfos}>
+                                    <View style={stylesModal.midInfo}>
+                                        <Text style={stylesModal.midInfoTittle}>Dificuldade</Text>
+                                        <Text style={stylesModal.info}>{modalData.dificuldade}</Text>
+                                    </View>
+                                    <View style={stylesModal.midInfo}>
+                                        <Text style={stylesModal.midInfoTittle}>Tempo</Text>
+                                        <Text style={stylesModal.info}>{modalData.tempo}</Text>
+                                    </View>
+                                    <View style={stylesModal.midInfo}>
+                                        <Text style={stylesModal.midInfoTittle}>Rendimento</Text>
+                                        <Text style={stylesModal.info}>{modalData.rendimento}</Text>
+                                    </View>
+                                </View>
+                            </View>
+
+                            <View style={stylesModal.bottomPart}>
+                                <View style={stylesModal.ingredientes}>
+                                    <Text style={{fontWeight: '600', fontSize: 12}}>INGREDIENTES</Text>
+                                    <View>
+                                        {
+                                            modalData.ingrediente.map((item) => {
+                                                return(
+                                                    <Text key={Math.random()} style={styles.ingrediente}><Text>&bull;</Text>  {item}</Text>
+                                                )
+                                            })
+                                        }
+                                    </View>
+                                </View>
+
+                                <View style={stylesModal.preparo}>
+                                    <Text style={{fontWeight: '600', fontSize: 12}}>MODO DE PREPARO</Text>
+                                    <View>
+                                        {
+                                            modalData['modo de preparo'].map((item, index) => {
+                                                return(
+                                                    <Text key={Math.random()} style={styles.passo}><Text>{index + 1}.</Text>  {item}</Text>
+                                                );
+                                            })
+                                        }
+                                    </View>
+                                </View>
+                            </View>
+                        </ScrollView>
+                    </View>
+                </Modal>
             </ScrollView>
         </SafeAreaView>
     );
@@ -202,4 +287,64 @@ const styles = StyleSheet.create({
         padding: 4,
         backgroundColor: '#EF233C'
     }
+});
+
+const stylesModal = StyleSheet.create({
+    modalContainer: {
+        backgroundColor: '#fff',
+        borderRadius: 8,
+        borderWidth: 1,
+        padding: 20,
+        flex: 1
+    },
+
+    upperPart: {
+        flexDirection: 'row', 
+    },
+
+    midImage: {     
+        width: '90%',
+        height: 200,
+        borderRadius: 8,
+        alignSelf: 'center',
+        marginVertical: 20,
+    },
+    midInfos: {
+        marginBottom: 20,
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    midInfo: {
+        // backgroundColor: 'white',
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'flex-end',
+    },
+    midInfoTittle: {
+        color: '#EF233C',
+        fontSize: 15,
+        fontWeight: '500',
+    },
+    info: {
+        fontWeight: '500',
+        fontSize: 15,
+    },
+    bottomPart: {
+        flex: 6,
+    },
+    ingredientes: {
+        
+    },
+    ingrediente: {
+        marginHorizontal: 12,
+        fontSize: 12,
+    },
+    preparo: {
+        marginTop: 20,
+        justifyContent: 'center',
+    },
+    passo: {
+        marginHorizontal: 12,
+        fontSize: 12,
+    },
 });
