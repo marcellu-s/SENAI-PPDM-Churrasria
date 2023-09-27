@@ -20,8 +20,13 @@ export default function App() {
                         <Text></Text>
                     </View>
                 </View>
-                <View style={styles.main}>
-                    <HomeBttn tittle="Calcular Churrasco" link="Calcular" description="Saiba o gasto com suprimentos ao se preparar um churrasco"></HomeBttn>
+                <View style={styles.bttns}>
+                    <View style={styles.bttn}>
+                        <HomeBttn tittle="Calcular Churrasco" link="Calcular" description="Saiba o gasto com suprimentos ao se preparar um churrasco"></HomeBttn>
+                    </View>
+                    <View style={styles.bttn}>
+                        <HomeBttn tittle="Mapa" link="Localizacao" description="Veja a localização do nosso churrasco no mapa"></HomeBttn>
+                    </View>
                 </View>
             </View>
             <StatusBar style="auto" />
@@ -51,8 +56,12 @@ const styles = StyleSheet.create({
         width: '100%',
     },
 
-    main: {
-        paddingTop: 130,
+    bttn: {
+        marginTop: 5,
         paddingHorizontal: 13,
+    },
+
+    bttns: {
+        paddingTop: 95,
     },
 });

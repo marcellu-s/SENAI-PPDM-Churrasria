@@ -291,11 +291,11 @@ const styles = StyleSheet.create({
 
 const stylesModal = StyleSheet.create({
     modalContainer: {
+        flex: 1,
         backgroundColor: '#fff',
         borderRadius: 8,
         borderWidth: 1,
         padding: 20,
-        flex: 1
     },
 
     upperPart: {
