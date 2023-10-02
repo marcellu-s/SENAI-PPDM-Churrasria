@@ -13,7 +13,7 @@ export const listaCortes = [
         id: 'c5', nome: 'Coxinha da Asa', preco: 13.99, check: false
     },
     {
-        id: 'c6', nome: 'Coxa e Sobrecoxa Desossada', preco: 12.99, check: false
+        id: 'c6', nome: 'Coxa e Sobrecoxa', preco: 12.99, check: false
     },
     {
         id: 'c7', nome: 'Fraldinha', preco: 42.39, check: false
