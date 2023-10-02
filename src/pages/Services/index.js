@@ -13,11 +13,7 @@ export const listaCortes = [
         id: 'c5', nome: 'Coxinha da Asa', preco: 13.99, check: false, obrigatorio: false
     },
     {
-<<<<<<< HEAD
-        id: 'c6', nome: 'Coxa e Sobrecoxa Desossada', preco: 12.99, check: false, obrigatorio: false
-=======
-        id: 'c6', nome: 'Coxa e Sobrecoxa', preco: 12.99, check: false
->>>>>>> dc26a67592877ef0b924b80cf04db4deb9e3cece
+        id: 'c6', nome: 'Coxa e Sobrecoxa', preco: 12.99, check: false, obrigatorio: false
     },
     {
         id: 'c7', nome: 'Fraldinha', preco: 42.39, check: false, obrigatorio: false
@@ -83,11 +79,7 @@ export const listaBebidas = [
         id: 'b2', nome: 'Suco', preco: 10.94, check: false, obrigatorio: false
     },
     {
-<<<<<<< HEAD
         id: 'b3', nome: 'Cerveja', preco: 3.19, check: false, obrigatorio: false
-=======
-        id: 'b3', nome: 'Cerveja', preco: 8.50, check: false
->>>>>>> dc26a67592877ef0b924b80cf04db4deb9e3cece
     },
     {
         id: 'b4', nome: 'Água', preco: 2.99, check: false, obrigatorio: false
