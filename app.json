@@ -4,7 +4,7 @@
     "slug": "churrasria",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./src/assets/fuego-churrasria.png",
+    "icon": "./src/assets/logo.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "",
@@ -24,7 +24,7 @@
       }
     },
     "web": {
-      "favicon": "./src/assets/fuego-churrasria.png"
+      "favicon": "./src/assets/logo.png"
     }
   }
 }
