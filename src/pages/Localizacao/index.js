@@ -1,13 +1,13 @@
 // import { useState } from "react";
-import { View, } from "react-native";
+import { View, StyleSheet, Text} from "react-native";
 import Maps from '../../components/Maps';
 
 const Localizacao = () => {
 
     return (
-        <View style={{style: 1}}>
-            {/* <Text>aaaaa</Text> */}
-            <Maps></Maps>
+        
+        <View style={{flex:1,}}>
+            <Maps/>
         </View>
     );
 };
