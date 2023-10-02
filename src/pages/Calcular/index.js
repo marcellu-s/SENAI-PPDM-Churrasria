@@ -98,8 +98,7 @@ export default function Calcular() {
     function toCalculo() {
 
         const dados = calculo(pegarTodosDados(), homem, mulher, crianca);
-
-        // console.log(dados.itens.cortes);
+        
         navigation.navigate('Resumo', dados);
     }
 

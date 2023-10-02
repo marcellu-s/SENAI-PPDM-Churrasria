@@ -17,7 +17,7 @@ export default function calculo (json, homem, mulher, crianca) {
 
         json.itens.dadosCortes.map((item) => {
 
-            let kilos = (maximoQuilosConsumidos / json.itens.dadosCortes.length);
+            let kilos = (maximoQuilosConsumidos / json.itens.dadosCortes.length).toFixed(2);
             let precoItem = (((kilos * 1000) * item.preco) / 1000).toFixed(2);
 
             cortes.push(
@@ -33,10 +33,10 @@ export default function calculo (json, homem, mulher, crianca) {
             let precoItem;
 
             if (item.nome == 'Cerveja') {
-                litros = ((0.3 * (totalPessoas - crianca)) / json.itens.dadosBebidas.length);
+                litros = ((0.3 * (totalPessoas - crianca)) / json.itens.dadosBebidas.length).toFixed(2);
 
             } else {
-                litros = ((0.3 * totalPessoas) / json.itens.dadosBebidas.length);
+                litros = ((0.3 * totalPessoas) / json.itens.dadosBebidas.length).toFixed(2);
             }
 
             precoItem = (((litros * 1000) * item.preco) / 1000).toFixed(2);
@@ -58,9 +58,9 @@ export default function calculo (json, homem, mulher, crianca) {
 
                 if (item.nome == 'Pão de Alho') {
 
-                    unidade = ((1 * totalPessoas) - totalPessoas / 2);
+                    unidade = Math.round((1 * totalPessoas) - totalPessoas / 2);
                 } else {
-                    unidade = ((3 * totalPessoas) - totalPessoas / 2);
+                    unidade = Math.round((3 * totalPessoas) - totalPessoas / 2);
                 }
 
                 precoItem = (unidade * item.preco).toFixed(2);
@@ -121,12 +121,26 @@ export default function calculo (json, homem, mulher, crianca) {
     }
 
     let precoTotal = 0;
+    let consumoCortesKilos = 0;
+    let consumoCortesPreco = 0;
+    let consumoBebidasLitros = 0;
+    let consumoBebidasPreco = 0;
 
     [ cortes, acompanhamentos, suprimentos, bebidas ].map((pos) => {
 
         if (pos.length > 0) {
             
             pos.map((item) => {
+
+                if (pos == cortes) {
+
+                    consumoCortesKilos += Number(item[1].replace(' kg', ''));
+                    consumoCortesPreco += Number(item[2].replace('R$ ', ''));
+                } else if (pos == bebidas) {
+
+                    consumoBebidasLitros += Number(item[1].replace(' L', ''));
+                    consumoBebidasPreco += Number(item[2].replace('R$ ', ''));
+                }
 
                 precoTotal += Number(item[2].replace('R$ ', ''));
             })
@@ -142,42 +156,9 @@ export default function calculo (json, homem, mulher, crianca) {
             'acompanhamentos': acompanhamentos,
             'suprimentos': suprimentos,
             'bebidas': bebidas,
-        }
+        },
+        totalDePessoa: totalPessoas,
+        consumoCortes: `${consumoCortesKilos} kg - R$ ${consumoCortesPreco}`,
+        consumoBebidas: `${consumoBebidasLitros} L - R$ ${consumoBebidasPreco}`
     }
-
-    // console.log(precoTotal.toFixed(2));
-    
-    // for (let tipo in json.itens) {
-
-    //     totalTipo = 0;
-
-    //     for (let item of json.itens[tipo]) {
-
-    //         if (tipo == "dadosCortes") {
-
-    //             totalTipo += item.preco;
-    //             continue;
-    //         }
-
-    //         if (item.nome == "Cerveja") {
-    //             totalTipo += item.preco * (totalPessoas - crianca);
-    //             continue;
-    //         }
-
-    //         totalTipo += item.preco * totalPessoas;
-    //     }
-
-    //     if (tipo == "dadosCortes") {
-
-    //         // Preço a ser pago nas carnes por Quilo
-    //         precoMedioQuilo = totalTipo / json.itens.dadosCortes.length;
-
-    //         // Preço das carnes dividido pelo quilos maximo consumidos
-    //         totalTipo = precoMedioQuilo * maximoQuilosConsumidos;
-    //     }
-        
-    //     total[tipo] = totalTipo;
-    // }
-
-    // precoFinal = Object.values(total).reduce((precoFinal, precoTipo) => precoFinal + precoTipo, 0);
 }
