@@ -1,88 +1,88 @@
 
 export const listaCortes = [
     {
-        id: 'c1', nome: 'Linguiça', preco: 17.49, check: false
+        id: 'c1', nome: 'Linguiça', preco: 17.49, check: false, obrigatorio: false
     },
     {
-        id: 'c2', nome: 'Picanha Suína', preco: 26.98, check: false
+        id: 'c2', nome: 'Picanha Suína', preco: 26.98, check: false, obrigatorio: false
     },
     {
-        id: 'c3', nome: 'Panceta', preco: 25.98, check: false
+        id: 'c3', nome: 'Panceta', preco: 25.98, check: false, obrigatorio: false
     },
     {
-        id: 'c5', nome: 'Coxinha da Asa', preco: 13.99, check: false
+        id: 'c5', nome: 'Coxinha da Asa', preco: 13.99, check: false, obrigatorio: false
     },
     {
-        id: 'c6', nome: 'Coxa e Sobrecoxa Desossada', preco: 12.99, check: false
+        id: 'c6', nome: 'Coxa e Sobrecoxa Desossada', preco: 12.99, check: false, obrigatorio: false
     },
     {
-        id: 'c7', nome: 'Fraldinha', preco: 42.39, check: false
+        id: 'c7', nome: 'Fraldinha', preco: 42.39, check: false, obrigatorio: false
     },
     {
-        id: 'c8', nome: 'Picanha Bovina', preco: 62.99, check: false
+        id: 'c8', nome: 'Picanha Bovina', preco: 62.99, check: false, obrigatorio: false
     },
     {
-        id: 'c9', nome: 'Alcatra', preco: 45.99, check: false
+        id: 'c9', nome: 'Alcatra', preco: 45.99, check: false, obrigatorio: false
     },
     {
-        id: 'c10', nome: 'Contra Filé', preco: 45.39, check: false
+        id: 'c10', nome: 'Contra Filé', preco: 45.39, check: false, obrigatorio: false
     },
 ];
 
 export const listaAcompanhamento = [
     {
-        id: 'a1', nome: 'Pão de Alho', preco: 3.00, check: false
+        id: 'a1', nome: 'Pão de Alho', preco: 3.00, check: false, obrigatorio: false
     },
     {
-        id: 'a2', nome: 'Queijo Coalho', preco: 42.90, check: false
+        id: 'a2', nome: 'Queijo Coalho', preco: 42.90, check: false, obrigatorio: false
     },
     {
-        id: 'a3', nome: 'Farofa pronta', preco: 18.58, check: false
+        id: 'a3', nome: 'Farofa pronta', preco: 18.58, check: true, obrigatorio: true
     },
     {
-        id: 'a4', nome: 'Pão Francês', preco: 1.12, check: false
+        id: 'a4', nome: 'Pão Francês', preco: 1.12, check: true, obrigatorio: true
     },
     {
-        id: 'a5', nome: 'Arroz', preco: 6.89, check: false
+        id: 'a5', nome: 'Arroz', preco: 6.89, check: true, obrigatorio: true
     },
     {
-        id: 'a6', nome: 'Salada de maionese', preco: 12.99, check: false
+        id: 'a6', nome: 'Salada de maionese', preco: 12.99, check: false, obrigatorio: false
     },
 ];
 
 export const listaSuprimento = [
     {
-        id: 's1', nome: 'Carvão', preco: 12.56, check: false
+        id: 's1', nome: 'Carvão', preco: 12.56, check: false, obrigatorio: false
     },
     {
-        id: 's2', nome: 'Copos', preco: 6.49, check: false
+        id: 's2', nome: 'Copos', preco: 6.49, check: true, obrigatorio: true
     },
     {
-        id: 's3', nome: 'Guardanapos', preco: 5.00, check: false
+        id: 's3', nome: 'Guardanapos', preco: 5.00, check: true, obrigatorio: true
     },
     {
-        id: 's4', nome: 'Pratos descartáveis', preco: 3.39, check: false
+        id: 's4', nome: 'Pratos descartáveis', preco: 3.39, check: false, obrigatorio: false
     },
     {
-        id: 's5', nome: 'Talheres', preco: 10.99, check: false
+        id: 's5', nome: 'Talheres', preco: 10.99, check: true, obrigatorio: true
     },
     {
-        id: 's6', nome: 'Fósforos/ascendedores', preco: 3.49, check: false
+        id: 's6', nome: 'Fósforos/ascendedores', preco: 3.49, check: false, obrigatorio: false
     },
 ];
 
 export const listaBebidas = [
     {
-        id: 'b1', nome: 'Refrigerante', preco: 6.89, check: false
+        id: 'b1', nome: 'Refrigerante', preco: 6.89, check: false, obrigatorio: false
     },
     {
-        id: 'b2', nome: 'Suco', preco: 10.94, check: false
+        id: 'b2', nome: 'Suco', preco: 10.94, check: false, obrigatorio: false
     },
     {
-        id: 'b3', nome: 'Cerveja', preco: 3.19, check: false
+        id: 'b3', nome: 'Cerveja', preco: 3.19, check: false, obrigatorio: false
     },
     {
-        id: 'b4', nome: 'Água', preco: 2.99, check: false
+        id: 'b4', nome: 'Água', preco: 2.99, check: false, obrigatorio: false
     },
 ];
 

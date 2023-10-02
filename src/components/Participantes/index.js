@@ -21,11 +21,25 @@ export function Participantes(props) {
         <View style={{ padding: 20 }}>
             <Text style={styles.text}>{props.text}</Text>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                <TouchableOpacity style={styles.addItemLeft} onPress={() => props.setState((old) => old < 30 ? Number(old) + 1 : old ) }>
+                <TouchableOpacity style={styles.addItemLeft} 
+                onPress={() => {
+                    if (props.totalPessoas.get < 50) {
+                        props.setState((old) => old < 50 ? Number(old) + 1 : old);
+                        props.totalPessoas.set((old) => old + 1);
+                    }
+                } 
+                }>
                     <Plus color="#000" size={24} />
                 </TouchableOpacity>
                 <TextInput style={styles.textInput} value={props.state.toString()} keyboardType="numeric" onChangeText={(value) => changeItem(props.setState, value)} />
-                <TouchableOpacity style={styles.addItemRight} onPress={() => props.setState((old) => old > 0 ? Number(old) - 1 : old ) }>
+                <TouchableOpacity style={styles.addItemRight} 
+                onPress={() => {
+                        if (props.state > 0) {
+                            props.setState((old) => old > 0 ? Number(old) - 1 : old );
+                            props.totalPessoas.set((old) => old - 1);
+                        }
+                }
+                }>
                     <Minus color="#000" size={24} />
                 </TouchableOpacity>
             </View>
