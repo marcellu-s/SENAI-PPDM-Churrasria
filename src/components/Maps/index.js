@@ -5,8 +5,6 @@ import pino from '../../assets/icon.png';
 
 const Maps = () => {
 
-
-
     async function posicao() {
         // falta a chave
         fetch('https://maps.googleapis.com/maps/api/geocode/json?address=05876040&region=BR&key=').then((response) => response.json()).

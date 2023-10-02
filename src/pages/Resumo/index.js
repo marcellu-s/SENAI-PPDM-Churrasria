@@ -1,6 +1,10 @@
 import { View, Text, ScrollView, StyleSheet, SafeAreaView } from "react-native";
-
+import { useRoute } from "@react-navigation/native";
 export default function Resumo() {
+
+    const dados = useRoute().params;
+
+    console.log(dados);
 
     return (
         <SafeAreaView style={styles.container}>

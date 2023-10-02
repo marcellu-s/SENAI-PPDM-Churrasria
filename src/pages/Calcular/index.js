@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { View, Text, SafeAreaView, StyleSheet, ScrollView, TouchableOpacity, Modal, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { CheckBox } from "@rneui/themed";
 import { Participantes } from "../../components/Participantes";
 import { listaAcompanhamento, listaCortes, listaSuprimento, listaBebidas, modalDataria, receitaria } from "../Services";
@@ -91,11 +92,14 @@ export default function Calcular() {
         return todosDados;
     }
 
+    const navigation = useNavigation();
+
     function toCalculo() {
 
         const dados = calculo(pegarTodosDados(), homem, mulher, crianca);
 
-        console.log(dados.itens.cortes);
+        // console.log(dados.itens.cortes);
+        navigation.navigate('Resumo', dados);
     }
 
     const [modalVisibility, setVisibility] = useState(false);

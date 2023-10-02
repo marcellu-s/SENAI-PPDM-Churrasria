@@ -25,7 +25,7 @@ export default function App() {
                         <HomeBttn tittle="Calcular Churrasco" link="Calcular" description="Saiba o gasto com suprimentos ao se preparar um churrasco"></HomeBttn>
                     </View>
                     <View style={styles.bttn}>
-                        <HomeBttn tittle="Mapa" link="Localizacao" description="Veja a localização do nosso churrasco no mapa"></HomeBttn>
+                        <HomeBttn tittle="Mapa" link="Resumo" description="Veja a localização do nosso churrasco no mapa"></HomeBttn>
                     </View>
                 </View>
             </View>
