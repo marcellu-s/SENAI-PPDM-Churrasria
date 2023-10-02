@@ -31,7 +31,7 @@ export const listaCortes = [
 
 export const listaAcompanhamento = [
     {
-        id: 'a1', nome: 'Pão de Alho', preco: 12.98, check: false
+        id: 'a1', nome: 'Pão de Alho', preco: 3.00, check: false
     },
     {
         id: 'a2', nome: 'Queijo Coalho', preco: 23.98, check: false
@@ -40,7 +40,7 @@ export const listaAcompanhamento = [
         id: 'a3', nome: 'Farofa pronta', preco: 10.98, check: false
     },
     {
-        id: 'a4', nome: 'Pão Francês', preco: 20.00, check: false
+        id: 'a4', nome: 'Pão Francês', preco: 1.12, check: false
     },
     {
         id: 'a5', nome: 'Arroz', preco: 20.00, check: false
