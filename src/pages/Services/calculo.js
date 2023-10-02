@@ -158,7 +158,7 @@ export default function calculo (json, homem, mulher, crianca) {
             'bebidas': bebidas,
         },
         totalDePessoa: totalPessoas,
-        consumoCortes: `${consumoCortesKilos} kg - R$ ${consumoCortesPreco}`,
-        consumoBebidas: `${consumoBebidasLitros} L - R$ ${consumoBebidasPreco}`
+        consumoCortes: `${consumoCortesKilos.toFixed(2)} kg - R$ ${consumoCortesPreco.toFixed(2)}`,
+        consumoBebidas: `${consumoBebidasLitros.toFixed(2)} L - R$ ${consumoBebidasPreco.toFixed(2)}`
     }
 }
