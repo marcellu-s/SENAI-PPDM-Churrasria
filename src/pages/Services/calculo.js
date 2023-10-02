@@ -121,12 +121,22 @@ export default function calculo (json, homem, mulher, crianca) {
     }
 
     let precoTotal = 0;
+    let consumoCortes = 0;
+    let consumoBebidas = 0;
 
     [ cortes, acompanhamentos, suprimentos, bebidas ].map((pos) => {
 
         if (pos.length > 0) {
             
             pos.map((item) => {
+
+                if (pos == cortes) {
+
+                    consumoCortes += Number(item[1].replace(' kg', ''));
+                } else if (pos == bebidas) {
+
+                    consumoBebidas += Number(item[1].replace(' L', ''));
+                }
 
                 precoTotal += Number(item[2].replace('R$ ', ''));
             })
@@ -143,6 +153,8 @@ export default function calculo (json, homem, mulher, crianca) {
             'suprimentos': suprimentos,
             'bebidas': bebidas,
         },
-        totalDePessoa: totalPessoas
+        totalDePessoa: totalPessoas,
+        'consumoCortes': consumoCortes,
+        'consumoBebidas': consumoBebidas
     }
 }
