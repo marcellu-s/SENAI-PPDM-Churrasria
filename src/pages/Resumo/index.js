@@ -6,7 +6,7 @@ export default function Resumo() {
 
     const dados = useRoute().params;
     const itens = dados.itens;
-    console.log(dados.homens);
+    console.log(dados);
 
     const [bebida, setBebida] = useState();
     const [cortes, setCortes] = useState();
@@ -28,9 +28,9 @@ export default function Resumo() {
                 <View>
                     <Text style={styles.subtitulo}>Participantes</Text>
                     {
-                        <View style={{ gap: 12, flexDirection: 'row', justifyContent: 'space-between'}}>
+                        <View style={{ gap: 12, flexDirection: 'row', justifyContent: 'space-between' }}>
                             <Text style={styles.descricao}>Pessoas</Text>
-                            <Text style={styles.valor}>{dados.totalDePessoas}</Text>
+                            <Text style={styles.valor}>{dados.totalDePessoa}</Text>
                         </View>
                     }
                 </View>
@@ -105,6 +105,23 @@ export default function Resumo() {
 
                             )
                         })
+                    }
+                </View>
+
+                <View>
+                    <Text style={styles.subtitulo}>Consumo</Text>
+                    {
+                        <View style={styles.linha}>
+                            <View style={{ gap: 12, flexDirection: 'row' }}>
+                                <Text style={styles.descricao}>{item[0]}</Text>
+                                <Text style={styles.vk}>{item[1]}</Text>
+                            </View>
+                            <View style={{ gap: 12, flexDirection: 'row' }}>
+                                <Text style={styles.descricao}>{item[0]}</Text>
+                                <Text style={styles.vk}>{item[1]}</Text>
+                            </View>
+                                <Text style={styles.valor}>{item[2]}</Text>
+                        </View>
                     }
                 </View>
                 <View style={styles.local}>
