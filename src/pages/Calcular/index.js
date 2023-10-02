@@ -3,7 +3,7 @@ import { View, Text, SafeAreaView, StyleSheet, ScrollView, TouchableOpacity, Mod
 import { CheckBox } from "@rneui/themed";
 import { Participantes } from "../../components/Participantes";
 import { listaAcompanhamento, listaCortes, listaSuprimento, listaBebidas, modalDataria, receitaria } from "../Services";
-
+import calculo from "../Services/calculo";
 
 export default function Calcular() {
 
@@ -91,51 +91,10 @@ export default function Calcular() {
         return todosDados;
     }
 
-    function calculo () {
-        const json = pegarTodosDados();
+    function toCalculo() {
 
-        let total = {};
-        const totalPessoas = homem + mulher + crianca;
-
-        let maximoQuilosConsumidos = (homem * 600) + (mulher * 400) + (crianca * 250);
-
-        maximoQuilosConsumidos /= 1000; // Fica em formato de Quilo, ex: 4.5 kg
-        // let maximoQuilosConsumidosArredondados = Math.round(maximoQuilosConsumidos) // Arredonda para cima o consumo ex: era 4.5, fica 5 kg
-
-        for (const tipo in json.itens) {
-
-            totalTipo = 0;
-
-            for (const item of json.itens[tipo]) {
-
-                if (tipo == "dadosCortes") {
-                    totalTipo += item.preco;
-                    continue;
-                }
-
-                if (item.nome == "Cerveja") {
-                    totalTipo += item.preco * (totalPessoas - crianca);
-                    continue;
-                }
-
-                totalTipo += item.preco * totalPessoas;
-            }
-
-            if (tipo == "dadosCortes") {
-
-                // Preço a ser pago nas carnes por Quilo
-                precoMedioQuilo = totalTipo / json.itens.dadosCortes.length;
-
-                // Preço das carnes dividido pelo quilos maximo consumidos
-                totalTipo = precoMedioQuilo * maximoQuilosConsumidos;
-            }
-            
-            total[tipo] = totalTipo;
-        }
-
-        precoFinal = Object.values(total).reduce((precoFinal, precoTipo) => precoFinal + precoTipo, 0);
+        calculo(pegarTodosDados(), homem, mulher, crianca);
     }
-
 
     const [modalVisibility, setVisibility] = useState(false);
     const [modalData, setModalData] = useState(receitaria['Linguiça']);
@@ -223,7 +182,7 @@ export default function Calcular() {
                     </View>
                 </View>
                 <View>
-                    <TouchableOpacity style={{width: '100%', backgroundColor: '#EF233C', padding: 5, borderRadius: 8}} onPress={() => calculo()}>
+                    <TouchableOpacity style={{width: '100%', backgroundColor: '#EF233C', padding: 5, borderRadius: 8}} onPress={() => toCalculo()}>
                         <Text style={{fontSize: 32, color: '#fff', textAlign: 'center'}}>CALCULAR</Text>
                     </TouchableOpacity>
                 </View>
