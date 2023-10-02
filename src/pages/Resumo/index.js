@@ -1,22 +1,12 @@
 import { View, Text, ScrollView, StyleSheet, SafeAreaView, TouchableOpacity } from "react-native";
 import { useRoute } from "@react-navigation/native";
 import Maps from "../../components/Maps";
-import { useState } from "react";
 export default function Resumo() {
 
     const dados = useRoute().params;
     const itens = dados.itens;
-    console.log(dados);
-
-    const [bebida, setBebida] = useState();
-    const [cortes, setCortes] = useState();
-    const [suprimento, setSuprimento] = useState();
-
-    // function teste() {
-
-    //     console.log(corte)
-    //     let bebida = dados.itens.bebida
-    // };
+    console.log(dados.consumoCortes);
+    console.log(Object.keys(dados));
 
     return (
         <SafeAreaView style={styles.container}>
@@ -110,23 +100,35 @@ export default function Resumo() {
 
                 <View>
                     <Text style={styles.subtitulo}>Consumo</Text>
-                    {
-                        <View style={styles.linha}>
-                            <View style={{ gap: 12, flexDirection: 'row' }}>
-                                <Text style={styles.descricao}>{item[0]}</Text>
-                                <Text style={styles.vk}>{item[1]}</Text>
-                            </View>
-                            <View style={{ gap: 12, flexDirection: 'row' }}>
-                                <Text style={styles.descricao}>{item[0]}</Text>
-                                <Text style={styles.vk}>{item[1]}</Text>
-                            </View>
-                                <Text style={styles.valor}>{item[2]}</Text>
-                        </View>
-                    }
+
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                        <Text style={styles.descricao}>Consumo de Cortes</Text>
+                        <Text style={styles.vk}>{dados.consumoCortes}</Text>
+                    </View>
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                        <Text style={styles.descricao}>Consumo de Bebidas</Text>
+                        <Text style={styles.vk}>{dados.consumoBebidas}</Text>
+                    </View>
+
+                    <Text style={styles.subtitulo}>VALOR TOTAL</Text>
+
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                        <Text style={styles.subtitulofinal}>PREÇO FINAL</Text>
+                        <Text style={styles.subtitulofinal}>{dados.precoFinal}</Text>
+                    </View>
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                        <Text style={styles.descricao}>Valor p/ Pessoa C/ Criança</Text>
+                        <Text style={styles.vk}>R${dados.valorPorPessoaComCrianca}</Text>
+                    </View>
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                        <Text style={styles.descricao}>Valor p/ Pessoa S/ Criança</Text>
+                        <Text style={styles.vk}>R${dados.valorPorPessoaSemCrianca}</Text>
+                    </View>
                 </View>
                 <View style={styles.local}>
-                    <TouchableOpacity onPress={() => teste()} style={{ marginBottom: 10, }}><Text>Pressione</Text></TouchableOpacity>
-                    <Maps/>
+                    <Maps>
+
+                    </Maps>
                 </View>
             </ScrollView>
         </SafeAreaView>
@@ -156,9 +158,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between'
     },
-    local: {
-        width: 200,
-        height: '100%',
-        justifyContent: 'flex-end',
-    }
+    subtitulofinal: {
+        fontSize: 20,
+        fontWeight: 'bold',
+    },
 })
