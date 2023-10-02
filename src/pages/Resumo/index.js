@@ -1,12 +1,11 @@
-import { View, Text, ScrollView, StyleSheet, SafeAreaView, TouchableOpacity } from "react-native";
-import { useRoute } from "@react-navigation/native";
+import { View, Text, ScrollView, StyleSheet, SafeAreaView } from "react-native";
 import Maps from "../../components/Maps";
+import { useRoute } from "@react-navigation/native";
 export default function Resumo() {
 
     const dados = useRoute().params;
     const itens = dados.itens;
-    console.log(dados.consumoCortes);
-    console.log(Object.keys(dados));
+    console.log(itens);
 
     return (
         <SafeAreaView style={styles.container}>
@@ -124,9 +123,7 @@ export default function Resumo() {
                     </View>
                 </View>
                 <View style={styles.local}>
-                    <Maps>
-
-                    </Maps>
+                    <Maps/>
                 </View>
             </ScrollView>
         </SafeAreaView>
@@ -162,6 +159,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     local: {
+        width: '100%',
+        height: 100,
         marginTop: 20,
     }
 })
