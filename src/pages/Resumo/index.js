@@ -126,7 +126,7 @@ export default function Resumo() {
                 </View>
                 <View style={styles.local}>
                     <TouchableOpacity onPress={() => teste()} style={{ marginBottom: 10, }}><Text>Pressione</Text></TouchableOpacity>
-                    <Maps />
+                    <Maps/>
                 </View>
             </ScrollView>
         </SafeAreaView>
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     local: {
-        width: '100%',
+        width: 200,
         height: '100%',
         justifyContent: 'flex-end',
     }
