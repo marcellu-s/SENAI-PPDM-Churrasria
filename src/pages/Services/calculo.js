@@ -143,8 +143,6 @@ export default function calculo (json, homem, mulher, crianca) {
             'suprimentos': suprimentos,
             'bebidas': bebidas,
         },
-        homens: homem,
-        mulher: mulher,
-        crianca: crianca
+        totalDePessoa: totalPessoas
     }
 }
