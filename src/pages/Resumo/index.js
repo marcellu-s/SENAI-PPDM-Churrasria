@@ -110,11 +110,9 @@ export default function Resumo() {
                         <Text style={styles.vk}>{dados.consumoBebidas}</Text>
                     </View>
 
-                    <Text style={styles.subtitulo}>VALOR TOTAL</Text>
-
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                        <Text style={styles.subtitulofinal}>PREÇO FINAL</Text>
-                        <Text style={styles.subtitulofinal}>{dados.precoFinal}</Text>
+                        <Text style={styles.subtitulofinal}>VALOR TOTAL</Text>
+                        <Text style={styles.subtitulofinal}>R${dados.precoFinal}</Text>
                     </View>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                         <Text style={styles.descricao}>Valor p/ Pessoa C/ Criança</Text>
@@ -159,7 +157,11 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     subtitulofinal: {
+        marginTop: 20,
         fontSize: 20,
         fontWeight: 'bold',
     },
+    local: {
+        marginTop: 20,
+    }
 })
