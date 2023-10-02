@@ -12,10 +12,6 @@ export default function App() {
             <View style={styles.header}>
                 <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', gap: 16, paddingTop: 20 }}>
                     <Image source={logo} style={{width: 48, height: 48, borderRadius: 8}} />
-                    {/* <Image
-                        style={{height: 48, width: 48}}
-                        source={{uri: 'https://raw.githubusercontent.com/marcellu-s/SENAI-PPDM-churrasria/main/src/assets/FUEGO%20CHURRASRIA.png'}}
-                    /> */}
                     <Text style={styles.title}>FUEGO CHURRASRIA</Text>
                 </View>
                 <View style={styles.headline}>
@@ -26,7 +22,10 @@ export default function App() {
                 </View>
                 <View style={styles.bttns}>
                     <View style={styles.bttn}>
-                        <HomeBttn tittle="Calcular Churrasco" link="Organizador" description="Saiba o gasto com suprimentos ao se preparar um churrasco"></HomeBttn>
+                        <HomeBttn tittle="Calcular Churrasco" link="Calcular" description="Saiba o gasto com suprimentos ao se preparar um churrasco"></HomeBttn>
+                    </View>
+                    <View style={styles.bttn}>
+                        <HomeBttn tittle="Organizador do evento" link="Organizador" description="Página de desenvolvimento do Robert"></HomeBttn>
                     </View>
                     <View style={styles.bttn}>
                         <HomeBttn tittle="Mapa" link="Resumo" description="Veja a localização do nosso churrasco no mapa"></HomeBttn>
