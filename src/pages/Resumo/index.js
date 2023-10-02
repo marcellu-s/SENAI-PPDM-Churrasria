@@ -6,6 +6,7 @@ export default function Resumo() {
 
     const dados = useRoute().params;
     const itens = dados.itens;
+    console.log(dados.homens);
 
     const [bebida, setBebida] = useState();
     const [cortes, setCortes] = useState();
@@ -23,6 +24,17 @@ export default function Resumo() {
                 <View>
                     <Text style={styles.title}>Resumo</Text>
                 </View>
+
+                <View>
+                    <Text style={styles.subtitulo}>Participantes</Text>
+                    {
+                        <View style={{ gap: 12, flexDirection: 'row', justifyContent: 'space-between'}}>
+                            <Text style={styles.descricao}>Pessoas</Text>
+                            <Text style={styles.valor}>{dados.totalDePessoas}</Text>
+                        </View>
+                    }
+                </View>
+
                 <View>
                     <Text style={styles.subtitulo}>Cortes</Text>
                     {
@@ -30,7 +42,7 @@ export default function Resumo() {
                             return (
                                 <View style={styles.linha}>
                                     <Text style={styles.descricao}>{item[0]}</Text>
-                                    <View style={{gap: 12,flexDirection: 'row'}}>
+                                    <View style={{ gap: 12, flexDirection: 'row' }}>
                                         <Text style={styles.vk}>{item[1]}</Text>
                                         <Text style={styles.valor}>{item[2]}</Text>
                                     </View>
@@ -48,7 +60,7 @@ export default function Resumo() {
                             return (
                                 <View style={styles.linha}>
                                     <Text style={styles.descricao}>{item[0]}</Text>
-                                    <View style={{gap: 12,flexDirection: 'row'}}>
+                                    <View style={{ gap: 12, flexDirection: 'row' }}>
                                         <Text style={styles.vk}>{item[1]}</Text>
                                         <Text style={styles.valor}>{item[2]}</Text>
                                     </View>
@@ -66,7 +78,7 @@ export default function Resumo() {
                             return (
                                 <View style={styles.linha}>
                                     <Text style={styles.descricao}>{item[0]}</Text>
-                                    <View style={{gap: 12,flexDirection: 'row'}}>
+                                    <View style={{ gap: 12, flexDirection: 'row' }}>
                                         <Text style={styles.vk}>{item[1]}</Text>
                                         <Text style={styles.valor}>{item[2]}</Text>
                                     </View>
@@ -84,7 +96,7 @@ export default function Resumo() {
                             return (
                                 <View style={styles.linha}>
                                     <Text style={styles.descricao}>{item[0]}</Text>
-                                    <View style={{gap: 12,flexDirection: 'row'}}>
+                                    <View style={{ gap: 12, flexDirection: 'row' }}>
                                         <Text style={styles.vk}>{item[1]}</Text>
                                         <Text style={styles.valor}>{item[2]}</Text>
                                     </View>
