@@ -1,9 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-
-import { Camera } from 'lucide-react-native';
+import { SafeAreaView, StyleSheet, Text, View, Image } from 'react-native';
 
 import HomeBttn from '../../components/HomeBttn';
+
+import logo from '../../assets/logo.png';
 
 export default function App() {
 
@@ -11,8 +11,12 @@ export default function App() {
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
                 <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', gap: 16, paddingTop: 20 }}>
-                    <Camera size={48} color='red' />
-                    <Text style={styles.title}>Churrasria</Text>
+                    <Image source={logo} style={{width: 48, height: 48, borderRadius: 8}} />
+                    {/* <Image
+                        style={{height: 48, width: 48}}
+                        source={{uri: 'https://raw.githubusercontent.com/marcellu-s/SENAI-PPDM-churrasria/main/src/assets/FUEGO%20CHURRASRIA.png'}}
+                    /> */}
+                    <Text style={styles.title}>FUEGO CHURRASRIA</Text>
                 </View>
                 <View style={styles.headline}>
                     <Text style={styles.headlineText}>VAMOS TE AJUDAR A MANDAR BRASA NO SEU CHURRASCO!</Text>
@@ -42,7 +46,7 @@ const styles = StyleSheet.create({
     },
 
     title: {
-        fontSize: 32,
+        fontSize: 28,
         fontWeight: 'bold'
     },
 
