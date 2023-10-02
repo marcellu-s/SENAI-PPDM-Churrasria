@@ -11,6 +11,7 @@ export default function Calcular() {
     const [ homem, setHomem ] = useState(0);
     const [ mulher, setMulher ] = useState(0);
     const [ crianca, setCrianca ] = useState(0);
+    const [ totalPessoas, setTotalPessoas ] = useState(0);
 
     const [ cortes, setCortes ] = useState(listaCortes);
     let cortesTemp = listaCortes;
@@ -123,9 +124,9 @@ export default function Calcular() {
                 <View style={{ flexDirection: 'column', rowGap: 40, marginTop: 40 }}>
                     <View>
                         <Text style={styles.subtitle}>1. Participantes</Text>
-                        <Participantes text="Homem" state={homem} setState={setHomem} />
-                        <Participantes text="Mulher" state={mulher} setState={setMulher} />
-                        <Participantes text="Criança" state={crianca} setState={setCrianca} />
+                        <Participantes totalPessoas={{"get": totalPessoas, "set": setTotalPessoas}} text="Homem" state={homem} setState={setHomem} />
+                        <Participantes totalPessoas={{"get": totalPessoas, "set": setTotalPessoas}} text="Mulher" state={mulher} setState={setMulher} />
+                        <Participantes totalPessoas={{"get": totalPessoas, "set": setTotalPessoas}} text="Criança" state={crianca} setState={setCrianca} />
                     </View>
                     <View>
                         <Text style={styles.subtitle}>1. Quais cortes serão servidos?</Text>
@@ -149,10 +150,9 @@ export default function Calcular() {
                             acompanhamento.map((item) => {
                                 return(
                                     <View key={item.id} style={styles.option}>
-                                        <CheckBox  onPress={() => {toggleCheckbox(item.id, 'acompanhamento')}} checked={item.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={item.nome} size={32} />
+                                        <CheckBox checkedColor={item.obrigatorio ? '#F84868' : '#118CFA'} onPress={() => {item.obrigatorio ? '' : toggleCheckbox(item.id, 'acompanhamento')}} checked={item.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={item.nome} size={32} />
                                         <Text>R$ {item.preco}</Text>
                                     </View>
-    
                                 )
                             })
                         }
@@ -163,7 +163,7 @@ export default function Calcular() {
                             suprimento.map((item) => {
                                 return(
                                     <View key={item.id} style={styles.option}>
-                                        <CheckBox onPress={() => {toggleCheckbox(item.id, 'suprimento')}} checked={item.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={item.nome} size={32} />
+                                        <CheckBox checkedColor={item.obrigatorio ? '#F84868' : '#118CFA'} onPress={() => {item.obrigatorio ? '' : toggleCheckbox(item.id, 'suprimento')}} checked={item.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={item.nome} size={32} />
                                         <Text>R$ {item.preco}</Text>
                                     </View>
     
@@ -177,10 +177,9 @@ export default function Calcular() {
                             bebida.map((item) => {
                                 return(
                                     <View key={item.id} style={styles.option}>
-                                        <CheckBox onPress={() => {toggleCheckbox(item.id, 'bebida')}} checked={item.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={item.nome} size={32} />
+                                        <CheckBox checkedColor={item.obrigatorio ? '#F84868' : '#118CFA'} onPress={() => {item.obrigatorio ? '' : toggleCheckbox(item.id, 'bebida')}} checked={item.check} iconType="material-community" checkedIcon="checkbox-outline" uncheckedIcon={'checkbox-blank-outline'} title={item.nome} size={32} />
                                         <Text>R$ {item.preco}</Text>
                                     </View>
-    
                                 )
                             })
                         }
