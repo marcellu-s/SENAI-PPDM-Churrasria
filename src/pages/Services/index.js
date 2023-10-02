@@ -34,31 +34,31 @@ export const listaAcompanhamento = [
         id: 'a1', nome: 'Pão de Alho', preco: 3.00, check: false
     },
     {
-        id: 'a2', nome: 'Queijo Coalho', preco: 23.98, check: false
+        id: 'a2', nome: 'Queijo Coalho', preco: 42.90, check: false
     },
     {
-        id: 'a3', nome: 'Farofa pronta', preco: 10.98, check: false
+        id: 'a3', nome: 'Farofa pronta', preco: 18.58, check: false
     },
     {
         id: 'a4', nome: 'Pão Francês', preco: 1.12, check: false
     },
     {
-        id: 'a5', nome: 'Arroz', preco: 20.00, check: false
+        id: 'a5', nome: 'Arroz', preco: 6.89, check: false
     },
     {
-        id: 'a6', nome: 'Salada de maionese', preco: 20.97, check: false
+        id: 'a6', nome: 'Salada de maionese', preco: 12.99, check: false
     },
 ];
 
 export const listaSuprimento = [
     {
-        id: 's1', nome: 'Carvão', preco: 37.99, check: false
+        id: 's1', nome: 'Carvão', preco: 12.56, check: false
     },
     {
         id: 's2', nome: 'Copos', preco: 6.49, check: false
     },
     {
-        id: 's3', nome: 'Guardanapos', preco: 2.49, check: false
+        id: 's3', nome: 'Guardanapos', preco: 5.00, check: false
     },
     {
         id: 's4', nome: 'Pratos descartáveis', preco: 3.39, check: false

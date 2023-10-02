@@ -93,7 +93,9 @@ export default function Calcular() {
 
     function toCalculo() {
 
-        calculo(pegarTodosDados(), homem, mulher, crianca);
+        const dados = calculo(pegarTodosDados(), homem, mulher, crianca);
+
+        console.log(dados.itens.cortes);
     }
 
     const [modalVisibility, setVisibility] = useState(false);
