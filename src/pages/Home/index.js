@@ -28,7 +28,7 @@ export default function App() {
                         <HomeBttn tittle="Organizador do evento" link="Organizador" description="Página de desenvolvimento do Robert"></HomeBttn>
                     </View>
                     <View style={styles.bttn}>
-                        <HomeBttn tittle="Mapa" link="Resumo" description="Veja a localização do nosso churrasco no mapa"></HomeBttn>
+                        <HomeBttn tittle="Mapa" link="Maps" description="Veja a localização do nosso churrasco no mapa"></HomeBttn>
                     </View>
                 </View>
             </View>
