@@ -1,6 +1,6 @@
 # FUEGO CHURRASRIA
 
-![Churrasco](https://exemplo.com/churrasco.jpg)
+![Churrasco](https://raw.githubusercontent.com/marcellu-s/SENAI-PPDM-churrasria/main/src/assets/tumb.png)
 
 > Este é um aplicativo simples de cálculo de churrasco, desenvolvido para auxiliar na organização de eventos e calcular a quantidade necessária de alimentos e bebidas para um churrasco.
 
