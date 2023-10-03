@@ -97,10 +97,25 @@ export default function Calcular() {
 
     function toCalculo() {
 
+        if (totalPessoas == 0) {
+            alert("Informe quantas pessoas vão participar do churrasco.");
+            return;
+        } else if (homem + mulher == 0 && crianca > 0) {
+            alert("Informe quantos adultos vão participar do churrasco.");
+            return;
+        }
+
         const dados = calculo(pegarTodosDados(), homem, mulher, crianca);
 
-        navigation.navigate('Resumo', dados);
+        if (dados.itens.cortes.length == 0) {
+            alert("Selecione ao menos um corte a ser servido.");
+            return;
+        } else if (dados.itens.bebidas.length == 0) {
+            alert("Selecione ao menos um tipo de bebida a ser servido.");
+            return;
+        }
 
+        navigation.navigate('Resumo', dados);
     }
 
     const [modalVisibility, setVisibility] = useState(false);
