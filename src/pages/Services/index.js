@@ -79,7 +79,7 @@ export const listaBebidas = [
         id: 'b2', nome: 'Suco', preco: 10.94, check: false, obrigatorio: false
     },
     {
-        id: 'b3', nome: 'Cerveja', preco: 3.19, check: false, obrigatorio: false
+        id: 'b3', nome: 'Cerveja', preco: 8.50, check: false, obrigatorio: false
     },
     {
         id: 'b4', nome: 'Água', preco: 2.99, check: false, obrigatorio: false
