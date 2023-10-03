@@ -16,8 +16,9 @@ export default function Formulario(){
 
 
 
+
     function salvar(){
-        if( nome === '' || telefone ==='' || cep === '' || uf ==='' || endereco ==='' || numero === '' || bairro ==='' ){
+        if( nome === '' && telefone ==='' && cep === '' && uf ==='' && endereco ==='' && numero === '' && bairro ==='' ){
             alert('Por favor, preencha os campos.')
             return;
         }
@@ -32,7 +33,7 @@ export default function Formulario(){
             bairro,
             valorLocacao
         }
-        console.log (salvar);
+        console.log (data);
 
     }
 
@@ -42,9 +43,9 @@ return (
 
 
 <Text style={styles.title1}>Organizador do evento</Text>
-<View style={styles.container2}> </View>
 
-<Text style={styles.title}>Por favor preencha as informações abaixo </Text>
+
+<Text style={styles.title}>Por favor, preencha as informações abaixo ;)</Text>
 
 
 <View>
@@ -57,36 +58,47 @@ return (
     <TextInput style={styles.input}
      onChangeText={setTelefone}
      value={telefone}/>
-     
-     <Text style={styles.textInput}>CEP: </Text>
-    <TextInput style={styles.input}
-     onChangeText={setCEP}
-     value={cep}/>
 
-    <Text style={styles.textInput}>UF: </Text>
-    <TextInput style={styles.input}
-     onChangeText={setUF}
-     value={uf}/>
+     <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <View>
+            <Text style={styles.textInput}>CEP: </Text>
+            <TextInput style={styles.inputCep}
+            onChangeText={setCEP}
+            value={cep}/>
+        </View>
+        <View>
+            <Text style={styles.textInput}>UF: </Text>
+            <TextInput style={styles.inputUf}
+            onChangeText={setUF}
+            value={uf}/>
+        </View>
+     </View>
+    <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <View>
+            <Text style={styles.textInputEndereco}>Endereço: </Text>
+            <TextInput style={styles.inputEndereco}
+            onChangeText={setEndereco}
+            value={endereco}/>
+        </View>
+        <View>
+            <Text style={styles.textInputN}>N°: </Text>
+            <TextInput style={styles.inputN}
+            onChangeText={setNumero}
+            value={numero}/>
+        </View>
+    </View>
     
-    <Text style={styles.textInput}>Endereço: </Text>
-    <TextInput style={styles.input}
-     onChangeText={setEndereco}
-     value={endereco}/>
-    
-    <Text style={styles.textInput}>N°: </Text>
-     <TextInput style={styles.input}
-      onChangeText={setNumero}
-      value={numero}/>
-    
-    <Text style={styles.textInput}>Bairro: </Text>
-    <TextInput style={styles.input}
+    <Text style={styles.textInputBairro}>Bairro: </Text>
+        <Text style={styles.textInputLocacao}>Valor locação *opcional: </Text>
+    <View style={styles.div}>
+    <TextInput style={styles.inputBairro}
      onChangeText={setBairro}
      value={bairro}/>
     
-    <Text style={styles.textInput}>Valor locação *opcional: </Text>
-    <TextInput style={styles.input}
+    <TextInput style={styles.inputLocacao}
      onChangeText={setValorlocacao}
      value={valorLocacao}/>
+     </View>
 </View>
 
 
@@ -99,32 +111,27 @@ return (
 
 
 );
-
-
 }
+
+
 
 
 const styles = StyleSheet.create({
     container: {
     flex: 1,
     backgroundColor:'#F0F4FF',
-    paddingHorizontal: 18,
+    paddingHorizontal: 10,
     justifyContent: 'center',
+    alignItems: 'center',
         
-    },
-
-    container2: {
-        backgroundColor: '#E21010',
-        height: 12,
-        width: 112,
-
     },
 
 
     title: {
-        fontSize: 34,
-        marginTop:15,
-        marginBottom: 34,
+        fontSize: 30,       
+        marginTop:5,
+        marginLeft: 35,
+        marginBottom: 25,
         color: '#333333',
         fontWeight: 'bold',
 
@@ -133,8 +140,8 @@ const styles = StyleSheet.create({
     
     title1: {
         fontSize: 34,
-        marginTop:15,
-        marginBottom: 34,
+        marginTop:5,
+        marginBottom: 10,
         color: '#000000',
         fontWeight: 'bold',
 
@@ -144,27 +151,175 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#999999',
         borderRadius: 10,
-        border: 1,
         height: 50,
-        width: 400,
+        width: 380,
+        paddingLeft: 10,
+        marginTop: 10,
+        marginLeft: 15,
+
+    },
+
+    inputCep: {
+        borderWidth: 1,
+        borderColor: '#999999',
+        borderRadius: 10,
+        height: 50,
+        width: 150,
+        paddingLeft: 10,
+        marginTop: 10,
+        marginLeft: 15,
+    },
+    
+    
+    inputUf: {
+        borderWidth: 1,
+        borderColor: '#999999',
+        borderRadius: 10,
+        height: 50,
+        width: 150,
+        paddingLeft: 10,
+        marginTop: 10,
+        marginLeft: 15,
+
+        
+    },
+    
+    inputEndereco: {
+        borderWidth: 1,
+        borderColor: '#999999',
+        borderRadius: 10,
+        height: 50,
+        width: 250,
+        paddingLeft: 10,
+        marginTop: 10,
+    },
+
+    inputN: {
+        
+        borderWidth: 1,
+        borderColor: '#999999',
+        borderRadius: 10,
+        height: 50,
+        width: 60,
+        paddingLeft: 10,
+        marginTop: 20,
+    },
+
+    div:{
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        marginTop: 20,
+
+    },
+
+    textInputDiv:{
+
+        marginRight: 4,
+        fontSize: 15,
+        marginLeft: 5,
+        color: '#333333',
+        fontWeight: 'bold',
+
+
+    },
+    textInputN:{
+        marginRight: 4,
+        fontSize: 15,
+        marginLeft: 5,
+        color: '#333333',
+        fontWeight: 'bold',
+
+
+    },
+    
+    textInputLocacao:{
+        
+        marginRight: 4,
+        fontSize: 15,
+        marginLeft: 5,
+        color: '#333333',
+        fontWeight: 'bold',
+
+
+    },
+    
+    textInputBairro:{
+        
+        marginRight: 100,
+        fontSize: 15,
+        marginLeft: 5,
+        color: '#333333',
+        fontWeight: 'bold',
+
+
+    },
+    
+    textInputEndereco:{
+        marginBottom: 15,
+        marginRight: 4,
+        fontSize: 15,
+        marginLeft: 5,
+        color: '#333333',
+        fontWeight: 'bold',
+
+
+    },
+    
+    
+
+    inputBairro: {
+        borderWidth: 1,
+        borderColor: '#999999',
+        borderRadius: 10,
+        height: 50,
+        width: 180,
+        paddingLeft: 10,
+        marginTop: 10,
+    },
+
+    inputLocacao: {
+        borderWidth: 1,
+        borderColor: '#999999',
+        borderRadius: 10,
+        height: 50,
+        width: 180,
+        paddingLeft: 10,
+        marginTop: 10,
     },
 
     textInput: {
+        paddingTop: 10,
         fontSize: 15,
-        fontFamily: Montserrat,
+        marginLeft: 5,
         color: '#333333',
         fontWeight: 'bold',
+        marginLeft: 20,
 
     },
 
     button: {
-        height: 50,
-        width: 400,
+        paddingTop: 8,
+        alignItems: 'center',
+        textAlign:'justify',
+        marginTop: 50,
+        height: 40,
+        width: 220,
         backgroundColor: '#EF233C',
-        borderRadius: 15,
-        fontSize: 25,
+        borderRadius: 10,
+        color: '#FFFFFF',
 
     },
+
+    textButton:{
+        color:'#FFFFFF',
+        fontWeight: 'bold',
+        letterSpacing: 1,
+        fontSize: 16,
+
+    },
+
+    
 
 
 });
