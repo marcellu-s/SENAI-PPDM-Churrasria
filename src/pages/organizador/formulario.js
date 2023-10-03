@@ -291,7 +291,6 @@ const styles = StyleSheet.create({
     textInput: {
         paddingTop: 10,
         fontSize: 15,
-        marginLeft: 5,
         color: '#333333',
         fontWeight: 'bold',
         marginLeft: 20,

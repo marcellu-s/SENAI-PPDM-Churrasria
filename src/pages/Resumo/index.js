@@ -1,7 +1,9 @@
-import { View, Text, ScrollView, StyleSheet, SafeAreaView } from "react-native";
+import { View, Text, ScrollView, StyleSheet, SafeAreaView, TouchableOpacity } from "react-native";
 import Maps from "../../components/Maps";
-import { useRoute } from "@react-navigation/native";
+import { useRoute, useNavigation } from "@react-navigation/native";
 export default function Resumo() {
+
+    const navigation = useNavigation();
 
     const dados = useRoute().params;
     const itens = dados.itens;
@@ -15,12 +17,10 @@ export default function Resumo() {
 
                 <View>
                     <Text style={styles.subtitulo}>Participantes</Text>
-                    {
-                        <View style={{ gap: 12, flexDirection: 'row', justifyContent: 'space-between' }}>
-                            <Text style={styles.descricao}>Pessoas</Text>
-                            <Text style={styles.valor}>{dados.totalDePessoa}</Text>
-                        </View>
-                    }
+                    <View style={{ gap: 12, flexDirection: 'row', justifyContent: 'space-between' }}>
+                        <Text style={styles.descricao}>Pessoas</Text>
+                        <Text style={styles.valor}>{dados.totalDePessoa}</Text>
+                    </View>
                 </View>
 
                 <View>
@@ -28,7 +28,7 @@ export default function Resumo() {
                     {
                         itens.cortes.map((item) => {
                             return (
-                                <View style={styles.linha}>
+                                <View key={Math.random()} style={styles.linha}>
                                     <Text style={styles.descricao}>{item[0]}</Text>
                                     <View style={{ gap: 12, flexDirection: 'row' }}>
                                         <Text style={styles.vk}>{item[1]}</Text>
@@ -46,7 +46,7 @@ export default function Resumo() {
                     {
                         itens.acompanhamentos.map((item) => {
                             return (
-                                <View style={styles.linha}>
+                                <View key={Math.random()} style={styles.linha}>
                                     <Text style={styles.descricao}>{item[0]}</Text>
                                     <View style={{ gap: 12, flexDirection: 'row' }}>
                                         <Text style={styles.vk}>{item[1]}</Text>
@@ -64,7 +64,7 @@ export default function Resumo() {
                     {
                         itens.suprimentos.map((item) => {
                             return (
-                                <View style={styles.linha}>
+                                <View key={Math.random()} style={styles.linha}>
                                     <Text style={styles.descricao}>{item[0]}</Text>
                                     <View style={{ gap: 12, flexDirection: 'row' }}>
                                         <Text style={styles.vk}>{item[1]}</Text>
@@ -82,7 +82,7 @@ export default function Resumo() {
                     {
                         itens.bebidas.map((item) => {
                             return (
-                                <View style={styles.linha}>
+                                <View key={Math.random()} style={styles.linha}>
                                     <Text style={styles.descricao}>{item[0]}</Text>
                                     <View style={{ gap: 12, flexDirection: 'row' }}>
                                         <Text style={styles.vk}>{item[1]}</Text>
@@ -123,6 +123,11 @@ export default function Resumo() {
                 </View>
                 <View style={styles.local}>
                     <Maps/>
+                </View>
+                <View style={{ marginTop: 12 }}>
+                    <TouchableOpacity style={{width: '100%', backgroundColor: '#fff', borderWidth: 1, borderColor: '#EF233C',padding: 5, borderRadius: 8}} onPress={() => navigation.navigate('Home')}>
+                        <Text style={{fontSize: 32, color: '#EF233C', textAlign: 'center'}}>VOLTAR - ÍNICIO</Text>
+                    </TouchableOpacity>
                 </View>
             </ScrollView>
         </SafeAreaView>

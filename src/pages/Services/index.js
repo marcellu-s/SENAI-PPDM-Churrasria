@@ -79,7 +79,7 @@ export const listaBebidas = [
         id: 'b2', nome: 'Suco', preco: 10.94, check: false, obrigatorio: false
     },
     {
-        id: 'b3', nome: 'Cerveja', preco: 3.19, check: false, obrigatorio: false
+        id: 'b3', nome: 'Cerveja', preco: 8.50, check: false, obrigatorio: false
     },
     {
         id: 'b4', nome: 'Água', preco: 2.99, check: false, obrigatorio: false
@@ -99,7 +99,7 @@ export const receitaria = {
      'Coxinha da Asa': {
         'id': 5, 'titulo': 'COXINHA DA ASA PICANTE', 'dificuldade': 'intermediário', 'tempo': 30, 'rendimento': 6, 'ingrediente': ['Coxinha da Asa Swift do Campo 1kg','2 colheres (sopa) de molho de soja','½ xícara (chá) de água','2 dentes de alho picados','½ pimenta-dedo-de-moça sem sementes picada','1 pedaço (5 cm) de gengibre descascado e picado','1 colher (sopa) de páprica doce','Sal Grosso Swift a gosto'], 'modo de preparo': ['No liquidificador bata todos os ingredientes até formar uma mistura homogênea.','Coloque as coxinhas em uma assadeira e tempere com o molho.','Cubra a assadeira e deixe marinando na geladeira por uma hora.','Na churrasqueira com a brasa bem quente coloque as coxinhas e asse até dourar bem dos dois lados aproximadamente por 20 minutos.','Sirva em seguida.'], 'image':'https://swiftbr.vteximg.com.br/arquivos/coxinha-da-asa-picante.jpg'
     },
-    'Coxa e Sobrecoxa Desossada': {
+    'Coxa e Sobrecoxa': {
         'id': 6, 'titulo': 'SOBRECOXA DE FRANCO COM BACON E LEGUMES', 'dificuldade': 'iniciante', 'tempo': 45, 'rendimento': 4, 'ingrediente': ['1 kg de Sobrecoxa de Frango Swift','250 g de Bacon Fatiado Swift','Tempero para Aves Swift a gosto','Sal Granulado para Parrilla com Pimenta a gosto','3 colheres (sopa) de mostarda','Chimichurri Swift a gosto','Cebola, Alho e Salsa Swift a gosto','1 colher (sopa) de óleo de gergelim','½ embalagem de Cenoura Baby Swift','½ embalagem de Brócolis Swift','½ embalagem de Couve-Flor Swift','3 colheres (sopa) de manteiga','2 colheres (sopa) de azeite','Ervas Finas Swift a gosto'], 'modo de preparo': ['Tempere o frango com o chimichurri, o tempero cebola, alho e salsa, o sal granulado para parrilla com pimenta e misture.','Envolva as tiras de Bacon no frango já marinado.','Coloque o frango em assadeira ou refratário, leve ao forno preaquecido a 160 ºC e asse entre 25 a 35 minutos.','Em uma frigideira aquecida, adicione o azeite e a manteiga. Acrescente a cenoura, brócolis e couve-flor.','Adicione uma pitada de sal e ervas finas.','Deixe cozinhando por 5 minutos até secar todo o líquido.','Emprate o frango junto com os legumes.'], 'image':'https://swiftbr.vteximg.com.br/arquivos/sobrecoxa-fango-com-bacon-legumes.jpg?v=637932425433770000'
     },
     'Picanha Bovina': {
