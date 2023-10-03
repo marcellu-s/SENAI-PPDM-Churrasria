@@ -1,6 +1,8 @@
 # FUEGO CHURRASRIA
 
-Este é um aplicativo simples de cálculo de churrasco, desenvolvido para auxiliar na organização de eventos e calcular a quantidade necessária de alimentos e bebidas para um churrasco.
+![Churrasco](https://exemplo.com/churrasco.jpg)
+
+> Este é um aplicativo simples de cálculo de churrasco, desenvolvido para auxiliar na organização de eventos e calcular a quantidade necessária de alimentos e bebidas para um churrasco.
 
 ## Funcionalidades
 
