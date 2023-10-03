@@ -5,7 +5,6 @@ export default function Resumo() {
 
     const dados = useRoute().params;
     const itens = dados.itens;
-    console.log(itens);
 
     return (
         <SafeAreaView style={styles.container}>
@@ -160,7 +159,7 @@ const styles = StyleSheet.create({
     },
     local: {
         width: '100%',
-        height: 100,
+        height: 200,
         marginTop: 20,
     }
 })

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import pino from '../../assets/icon.png';
 import { CHAVE } from '@env'
@@ -27,7 +27,7 @@ const Maps = () => {
 
     return (
         <View style={styles.container}>
-            <MapView initialRegion={{ latitude: latitude, longitude: longitude, latitudeDelta: 1, longitudeDelta: 1, }} style={styles.mapaDimensao}>
+            <MapView initialRegion={{ latitude: latitude, longitude: longitude, latitudeDelta: 0.100, longitudeDelta: 0.100, }} style={styles.mapaDimensao}>
                 <Marker coordinate={{ latitude: latitude, longitude: longitude }}>
                     <View style={{ flexDirection: 'column' }}>
                         <Image source={pino} style={styles.mapMarkerImage} />
