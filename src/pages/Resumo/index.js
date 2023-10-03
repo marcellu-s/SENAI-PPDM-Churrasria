@@ -1,7 +1,9 @@
-import { View, Text, ScrollView, StyleSheet, SafeAreaView } from "react-native";
+import { View, Text, ScrollView, StyleSheet, SafeAreaView, TouchableOpacity } from "react-native";
 import Maps from "../../components/Maps";
-import { useRoute } from "@react-navigation/native";
+import { useRoute, useNavigation } from "@react-navigation/native";
 export default function Resumo() {
+
+    const navigation = useNavigation();
 
     const dados = useRoute().params;
     const itens = dados.itens;
@@ -121,6 +123,11 @@ export default function Resumo() {
                 </View>
                 <View style={styles.local}>
                     <Maps/>
+                </View>
+                <View style={{ marginTop: 12 }}>
+                    <TouchableOpacity style={{width: '100%', backgroundColor: '#fff', borderWidth: 1, borderColor: '#EF233C',padding: 5, borderRadius: 8}} onPress={() => navigation.navigate('Home')}>
+                        <Text style={{fontSize: 32, color: '#EF233C', textAlign: 'center'}}>VOLTAR - ÍNICIO</Text>
+                    </TouchableOpacity>
                 </View>
             </ScrollView>
         </SafeAreaView>
