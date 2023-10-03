@@ -15,12 +15,10 @@ export default function Resumo() {
 
                 <View>
                     <Text style={styles.subtitulo}>Participantes</Text>
-                    {
-                        <View style={{ gap: 12, flexDirection: 'row', justifyContent: 'space-between' }}>
-                            <Text style={styles.descricao}>Pessoas</Text>
-                            <Text style={styles.valor}>{dados.totalDePessoa}</Text>
-                        </View>
-                    }
+                    <View style={{ gap: 12, flexDirection: 'row', justifyContent: 'space-between' }}>
+                        <Text style={styles.descricao}>Pessoas</Text>
+                        <Text style={styles.valor}>{dados.totalDePessoa}</Text>
+                    </View>
                 </View>
 
                 <View>
@@ -28,7 +26,7 @@ export default function Resumo() {
                     {
                         itens.cortes.map((item) => {
                             return (
-                                <View style={styles.linha}>
+                                <View key={Math.random()} style={styles.linha}>
                                     <Text style={styles.descricao}>{item[0]}</Text>
                                     <View style={{ gap: 12, flexDirection: 'row' }}>
                                         <Text style={styles.vk}>{item[1]}</Text>
@@ -46,7 +44,7 @@ export default function Resumo() {
                     {
                         itens.acompanhamentos.map((item) => {
                             return (
-                                <View style={styles.linha}>
+                                <View key={Math.random()} style={styles.linha}>
                                     <Text style={styles.descricao}>{item[0]}</Text>
                                     <View style={{ gap: 12, flexDirection: 'row' }}>
                                         <Text style={styles.vk}>{item[1]}</Text>
@@ -64,7 +62,7 @@ export default function Resumo() {
                     {
                         itens.suprimentos.map((item) => {
                             return (
-                                <View style={styles.linha}>
+                                <View key={Math.random()} style={styles.linha}>
                                     <Text style={styles.descricao}>{item[0]}</Text>
                                     <View style={{ gap: 12, flexDirection: 'row' }}>
                                         <Text style={styles.vk}>{item[1]}</Text>
@@ -82,7 +80,7 @@ export default function Resumo() {
                     {
                         itens.bebidas.map((item) => {
                             return (
-                                <View style={styles.linha}>
+                                <View key={Math.random()} style={styles.linha}>
                                     <Text style={styles.descricao}>{item[0]}</Text>
                                     <View style={{ gap: 12, flexDirection: 'row' }}>
                                         <Text style={styles.vk}>{item[1]}</Text>

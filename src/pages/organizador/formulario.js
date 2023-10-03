@@ -151,7 +151,6 @@ const styles = StyleSheet.create({
 
     textInput: {
         fontSize: 15,
-        fontFamily: Montserrat,
         color: '#333333',
         fontWeight: 'bold',
 
