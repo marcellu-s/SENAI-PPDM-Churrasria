@@ -61,13 +61,13 @@ return (
 
      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
         <View>
-            <Text style={styles.textInput}>CEP: </Text>
+            <Text style={styles.textInputCep}>CEP: </Text>
             <TextInput style={styles.inputCep}
             onChangeText={setCEP}
             value={cep}/>
         </View>
         <View>
-            <Text style={styles.textInput}>UF: </Text>
+            <Text style={styles.textInputUf}>UF: </Text>
             <TextInput style={styles.inputUf}
             onChangeText={setUF}
             value={uf}/>
@@ -87,18 +87,21 @@ return (
             value={numero}/>
         </View>
     </View>
-    
-    <Text style={styles.textInputBairro}>Bairro: </Text>
-        <Text style={styles.textInputLocacao}>Valor locação *opcional: </Text>
-    <View style={styles.div}>
-    <TextInput style={styles.inputBairro}
-     onChangeText={setBairro}
-     value={bairro}/>
-    
-    <TextInput style={styles.inputLocacao}
-     onChangeText={setValorlocacao}
-     value={valorLocacao}/>
-     </View>
+
+    <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <View>
+            <Text style={styles.textInputBairro}>Bairro: </Text>
+            <TextInput style={styles.inputBairro}
+             onChangeText={setBairro}
+             value={bairro}/>
+        </View>
+        <View>
+            <Text style={styles.textInputLocacao}>Valor locação *opcional: </Text>
+            <TextInput style={styles.inputLocacao}
+            onChangeText={setValorlocacao}
+            value={valorLocacao}/>
+        </View>
+    </View>
 </View>
 
 
@@ -119,7 +122,7 @@ return (
 const styles = StyleSheet.create({
     container: {
     flex: 1,
-    backgroundColor:'#F0F4FF',
+    backgroundColor:'#FFFFFF',
     paddingHorizontal: 10,
     justifyContent: 'center',
     alignItems: 'center',
@@ -128,20 +131,21 @@ const styles = StyleSheet.create({
 
 
     title: {
-        fontSize: 30,       
-        marginTop:5,
+        fontSize: 28,       
+        marginTop:20,
         marginLeft: 35,
         marginBottom: 25,
         color: '#333333',
         fontWeight: 'bold',
+        marginLeft: 5,
 
     },
 
     
     title1: {
-        fontSize: 34,
+        fontSize: 32,
         marginTop:5,
-        marginBottom: 10,
+        marginBottom: 35,
         color: '#000000',
         fontWeight: 'bold',
 
@@ -154,8 +158,8 @@ const styles = StyleSheet.create({
         height: 50,
         width: 380,
         paddingLeft: 10,
-        marginTop: 10,
-        marginLeft: 15,
+        marginTop: 15,
+        marginLeft: 5,
 
     },
 
@@ -164,10 +168,10 @@ const styles = StyleSheet.create({
         borderColor: '#999999',
         borderRadius: 10,
         height: 50,
-        width: 150,
+        width: 180,
         paddingLeft: 10,
+        marginLeft: 5,
         marginTop: 10,
-        marginLeft: 15,
     },
     
     
@@ -176,12 +180,12 @@ const styles = StyleSheet.create({
         borderColor: '#999999',
         borderRadius: 10,
         height: 50,
-        width: 150,
+        width: 180,
         paddingLeft: 10,
-        marginTop: 10,
         marginLeft: 15,
-
+        marginTop: 10,
         
+
     },
     
     inputEndereco: {
@@ -189,9 +193,10 @@ const styles = StyleSheet.create({
         borderColor: '#999999',
         borderRadius: 10,
         height: 50,
-        width: 250,
+        width: 300,
         paddingLeft: 10,
         marginTop: 10,
+        marginLeft: 5,
     },
 
     inputN: {
@@ -202,82 +207,13 @@ const styles = StyleSheet.create({
         height: 50,
         width: 60,
         paddingLeft: 10,
-        marginTop: 20,
-    },
-
-    div:{
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
-        marginTop: 20,
-
-    },
-
-    textInputDiv:{
-
-        marginRight: 4,
-        fontSize: 15,
-        marginLeft: 5,
-        color: '#333333',
-        fontWeight: 'bold',
-
-
-    },
-    textInputN:{
-        marginRight: 4,
-        fontSize: 15,
-        marginLeft: 5,
-        color: '#333333',
-        fontWeight: 'bold',
-
-
-    },
-    
-    textInputLocacao:{
-        
-        marginRight: 4,
-        fontSize: 15,
-        marginLeft: 5,
-        color: '#333333',
-        fontWeight: 'bold',
-
-
-    },
-    
-    textInputBairro:{
-        
-        marginRight: 100,
-        fontSize: 15,
-        marginLeft: 5,
-        color: '#333333',
-        fontWeight: 'bold',
-
-
-    },
-    
-    textInputEndereco:{
-        marginBottom: 15,
-        marginRight: 4,
-        fontSize: 15,
-        marginLeft: 5,
-        color: '#333333',
-        fontWeight: 'bold',
-
-
-    },
-    
-    
-
-    inputBairro: {
-        borderWidth: 1,
-        borderColor: '#999999',
-        borderRadius: 10,
-        height: 50,
-        width: 180,
-        paddingLeft: 10,
         marginTop: 10,
+        marginLeft: 10,
+        marginRight: 5,
+
     },
 
+   
     inputLocacao: {
         borderWidth: 1,
         borderColor: '#999999',
@@ -288,21 +224,108 @@ const styles = StyleSheet.create({
         marginTop: 10,
     },
 
+    inputBairro: {
+        borderWidth: 1,
+        borderColor: '#999999',
+        borderRadius: 10,
+        height: 50,
+        width: 180,
+        paddingLeft: 10,
+        marginTop: 10,
+        marginRight: 30,
+    },
+
+
+
+    div:{
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        marginTop: 20,
+
+    },
+
+    textInputCep:{
+        marginTop: 15,
+        fontSize: 15,
+        marginLeft: 15,
+        color: '#333333',
+        fontWeight: 'bold',
+
+
+    },
+
+    textInputUf:{
+        marginTop: 15,
+        fontSize: 15,
+        marginLeft: 22,
+        color: '#333333',
+        fontWeight: 'bold',
+        
+
+
+    },
+
+   
+    textInputN:{
+        marginRight: 4,
+        marginTop: 20,
+        fontSize: 15,
+        marginLeft: 5,
+        color: '#333333',
+        fontWeight: 'bold',
+
+
+    },
+
+    textInputEndereco:{
+        marginTop: 20,
+        fontSize: 15,
+        marginLeft: 15,
+        color: '#333333',
+        fontWeight: 'bold',
+
+
+    },
+    
+    textInputLocacao:{
+        
+        marginLeft: 10,
+        fontSize: 15,
+        marginLeft: 5,
+        color: '#333333',
+        fontWeight: 'bold',
+
+
+    },
+    
+    textInputBairro:{
+        
+        marginRight: 10,
+        fontSize: 15,
+        marginLeft: 5,
+        color: '#333333',
+        fontWeight: 'bold',
+
+
+    },
+
+
     textInput: {
         paddingTop: 10,
         fontSize: 15,
         color: '#333333',
         fontWeight: 'bold',
-        marginLeft: 20,
+        marginLeft: 15,
 
     },
 
     button: {
-        paddingTop: 8,
+        paddingTop: 10,
         alignItems: 'center',
         textAlign:'justify',
         marginTop: 50,
-        height: 40,
+        height: 50,
         width: 220,
         backgroundColor: '#EF233C',
         borderRadius: 10,
@@ -314,7 +337,7 @@ const styles = StyleSheet.create({
         color:'#FFFFFF',
         fontWeight: 'bold',
         letterSpacing: 1,
-        fontSize: 16,
+        fontSize: 18,
 
     },
 
