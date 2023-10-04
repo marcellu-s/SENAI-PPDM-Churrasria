@@ -26,7 +26,6 @@ const Maps = () => {
 
     const [latitudeOrigem, setLatitudeOrigem] = useState(-23.648057335940447)
     const [longitudeOrigem, setLongitudeOrigem] = useState(-46.721278295962286)
-    console.log(localidade[0].latitude)
 
     return (
         <View style={styles.container}>
