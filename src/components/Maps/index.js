@@ -59,6 +59,61 @@ const Maps = () => {
                         <Image source={swift} style={styles.mapMarkerImage} />
                     </View>
                 </Marker>
+                <Marker coordinate={{ latitude: -23.623128344920655, longitude:  -46.71774635856861,}}>
+                    <View style={{ flexDirection: 'column' }}>
+                        <Image source={swift} style={styles.mapMarkerImage} />
+                    </View>
+                </Marker>
+                <Marker coordinate={{ latitude: -23.63547201589275, longitude: -46.71386768125056,}}>
+                    <View style={{ flexDirection: 'column' }}>
+                        <Image source={swift} style={styles.mapMarkerImage} />
+                    </View>
+                </Marker>
+                <Marker coordinate={{ latitude: -23.651266934865017, longitude: -46.694490805097,}}>
+                    <View style={{ flexDirection: 'column' }}>
+                        <Image source={swift} style={styles.mapMarkerImage} />
+                    </View>
+                </Marker>
+                <Marker coordinate={{ latitude: -23.66094487844546, longitude: -46.68862869351844,}}>
+                    <View style={{ flexDirection: 'column' }}>
+                        <Image source={swift} style={styles.mapMarkerImage} />
+                    </View>
+                </Marker>
+                <Marker coordinate={{ latitude: -23.65471870446351, longitude: -46.67357721240622,}}>
+                    <View style={{ flexDirection: 'column' }}>
+                        <Image source={swift} style={styles.mapMarkerImage} />
+                    </View>
+                </Marker>
+                <Marker coordinate={{ latitude: -23.640074590957575, longitude: -46.66562181952293,}}>
+                    <View style={{ flexDirection: 'column' }}>
+                        <Image source={swift} style={styles.mapMarkerImage} />
+                    </View>
+                </Marker>
+                <Marker coordinate={{ latitude: -23.6207667131451, longitude: -46.66749836201962,}}>
+                    <View style={{ flexDirection: 'column' }}>
+                        <Image source={swift} style={styles.mapMarkerImage} />
+                    </View>
+                </Marker>
+                <Marker coordinate={{ latitude: -23.619576408359617, longitude: -46.670818398744544,}}>
+                    <View style={{ flexDirection: 'column' }}>
+                        <Image source={swift} style={styles.mapMarkerImage} />
+                    </View>
+                </Marker>
+                <Marker coordinate={{ latitude: -23.609524514555808, longitude: -46.6840985456442,}}>
+                    <View style={{ flexDirection: 'column' }}>
+                        <Image source={swift} style={styles.mapMarkerImage} />
+                    </View>
+                </Marker>
+                <Marker coordinate={{ latitude: -23.623279543289865, longitude: -46.688284678906044,}}>
+                    <View style={{ flexDirection: 'column' }}>
+                        <Image source={swift} style={styles.mapMarkerImage} />
+                    </View>
+                </Marker>
+                <Marker coordinate={{ latitude: -23.687519909128504, longitude: -46.70298872567226,}}>
+                    <View style={{ flexDirection: 'column' }}>
+                        <Image source={swift} style={styles.mapMarkerImage} />
+                    </View>
+                </Marker>
 
             </MapView>
         </View >
