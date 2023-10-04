@@ -55,16 +55,16 @@ export const listaSuprimento = [
         id: 's1', nome: 'Carvão', preco: 12.56, check: false, obrigatorio: false
     },
     {
-        id: 's2', nome: 'Copos', preco: 6.49, check: true, obrigatorio: true
+        id: 's2', nome: 'Copos', preco: 6.49, check: true, obrigatorio: false
     },
     {
-        id: 's3', nome: 'Guardanapos', preco: 5.00, check: true, obrigatorio: true
+        id: 's3', nome: 'Guardanapos', preco: 5.00, check: true, obrigatorio: false
     },
     {
         id: 's4', nome: 'Pratos descartáveis', preco: 3.39, check: false, obrigatorio: false
     },
     {
-        id: 's5', nome: 'Talheres', preco: 10.99, check: true, obrigatorio: true
+        id: 's5', nome: 'Talheres', preco: 10.99, check: true, obrigatorio: false
     },
     {
         id: 's6', nome: 'Fósforos/ascendedores', preco: 3.49, check: false, obrigatorio: false

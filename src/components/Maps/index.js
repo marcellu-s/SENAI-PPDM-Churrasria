@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import pino from '../../assets/icon.png';
+import swift from '../../assets/logo_swift.png'
 import { CHAVE } from '@env'
 const Maps = () => {
     
@@ -31,6 +32,31 @@ const Maps = () => {
                 <Marker coordinate={{ latitude: latitude, longitude: longitude }}>
                     <View style={{ flexDirection: 'column' }}>
                         <Image source={pino} style={styles.mapMarkerImage} />
+                    </View>
+                </Marker>
+                <Marker coordinate={{ latitude: -23.64589112035344, longitude: -46.70176783784438,}}>
+                    <View style={{ flexDirection: 'column' }}>
+                        <Image source={swift} style={styles.mapMarkerImage} />
+                    </View>
+                </Marker>
+                <Marker coordinate={{ latitude: -23.6401893408817, longitude: -46.73472771640477,}}>
+                    <View style={{ flexDirection: 'column' }}>
+                        <Image source={swift} style={styles.mapMarkerImage} />
+                    </View>
+                </Marker>
+                <Marker coordinate={{ latitude: -23.631293304940876, longitude: -46.73509186514136,}}>
+                    <View style={{ flexDirection: 'column' }}>
+                        <Image source={swift} style={styles.mapMarkerImage} />
+                    </View>
+                </Marker>
+                <Marker coordinate={{ latitude: -23.650085470448573, longitude: -46.75681940642432,}}>
+                    <View style={{ flexDirection: 'column' }}>
+                        <Image source={swift} style={styles.mapMarkerImage} />
+                    </View>
+                </Marker>
+                <Marker coordinate={{ latitude: -23.612387222017784, longitude: -46.74237483987307,}}>
+                    <View style={{ flexDirection: 'column' }}>
+                        <Image source={swift} style={styles.mapMarkerImage} />
                     </View>
                 </Marker>
 
