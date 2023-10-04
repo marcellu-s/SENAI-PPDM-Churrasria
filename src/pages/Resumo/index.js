@@ -120,10 +120,22 @@ export default function Resumo() {
                         <Text style={styles.descricao}>Valor p/ Pessoa S/ Criança</Text>
                         <Text style={styles.vk}>R${dados.valorPorPessoaSemCrianca}</Text>
                     </View>
+
+                    <Text style={styles.subtitulo}>Local</Text>
+
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                        <Text style={styles.descricao}>CEP: {'05876040'}</Text>
+                        <Text style={styles.descricao}>RUA: {'Rua Antônio'} nº:{99}</Text>
+                    </View>
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                        <Text style={styles.descricao}>Bairro: {'Sem Bairro'}</Text>
+                        <Text style={styles.descricao}>Cidade: {'São Paulo'} Estado:{'SP'}</Text>
+                    </View>
                 </View>
                 <View style={styles.local}>
                     <Maps/>
                 </View>
+                
                 <View style={{ marginTop: 12 }}>
                     <TouchableOpacity style={{width: '100%', backgroundColor: '#fff', borderWidth: 1, borderColor: '#EF233C',padding: 5, borderRadius: 8}} onPress={() => navigation.navigate('Home')}>
                         <Text style={{fontSize: 32, color: '#EF233C', textAlign: 'center'}}>VOLTAR - ÍNICIO</Text>
