@@ -115,3 +115,59 @@ export const receitaria = {
         'id': 11, 'titulo': 'CONTRA FILÉ COM BATATAS', 'dificuldade': 'iniciante', 'tempo': 30, 'rendimento': 6, 'ingrediente': ['8 bifes de contra file','2 dentes de alho amassados','1 limão','1 pitada de pimenta-do-reino moída','2 colheres de sopa de extrato de tomate','sal a gosto','8 batatas médias descascadas','2 colheres de sopa de óleo','1 xícara de água fervendo'], 'modo de preparo': ['Uma tigela tempere os contra files com o alho, a pimenta e o sal.','Esprema o limão por cima, misture tudo e deixe descansar por 10 minutinhos para tomar gosto.','Em uma panela de pressão, esquente o óleo e frite os bifes dos dois lados rapidamente, ou seja, não é para deixar torrar demais.','Quando todos estiverem fritos, junte todos na mesma panela de pressão, acescente o extrato de tomate misturando bem para dar uma cor bonita ao molho e acrescente as batatas descascadas.','Coloque a água fervendo, tampe a panela espere começar a pressão e desligue após 5 minutos de pressão.','Espere sair a pressão, destampe a panela, arrume tudo numa travessa, salpique salsinha ou coentro picadinhos (opcional) e sirva com arroz branco ou simplesmente com legumes cozidos no vapor.'], 'image': 'https://static.itdg.com.br/images/640-400/1416f1bbf8b88d03cc6d2df7088718e3/331097-original.jpg'
     },
 }
+
+export const localidade = [
+    {
+        latitude: -23.64589112035344,
+        longitude: -46.70176783784438,
+
+    },
+    {
+        latitude: -23.6401893408817, longitude: -46.73472771640477,
+    },
+    {
+        latitude: -23.631293304940876, longitude: -46.73509186514136,
+    },
+    {
+        latitude: -23.650085470448573, longitude: -46.75681940642432,
+    },
+    {
+        latitude: -23.612387222017784, longitude: -46.74237483987307,
+    },
+    {
+        latitude: -23.623128344920655, longitude: -46.71774635856861,
+    },
+    {
+        latitude: -23.63547201589275, longitude: -46.71386768125056,
+    },
+    {
+        latitude: -23.651266934865017, longitude: -46.694490805097,
+    },
+    {
+        latitude: -23.66094487844546, longitude: -46.68862869351844,
+    },
+    {
+        latitude: -23.66094487844546, longitude: -46.68862869351844,
+    },
+    {
+        latitude: -23.65471870446351, longitude: -46.67357721240622,
+    },
+    {
+        latitude: -23.640074590957575, longitude: -46.66562181952293,
+    },
+    {
+        latitude: -23.6207667131451, longitude: -46.66749836201962,
+    },
+    {
+        latitude: -23.619576408359617, longitude: -46.670818398744544,
+    },
+    {
+        latitude: -23.609524514555808, longitude: -46.6840985456442,
+    },
+    {
+        latitude: -23.623279543289865, longitude: -46.688284678906044,
+    },
+    {
+        latitude: -23.687519909128504, longitude: -46.70298872567226,
+    },
+]
