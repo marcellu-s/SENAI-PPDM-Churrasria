@@ -10,7 +10,7 @@ export default function Resumo() {
 
     return (
         <SafeAreaView style={styles.container}>
-            <ScrollView>
+            <ScrollView style={{ paddingHorizontal: 20 }}>
                 <View>
                     <Text style={styles.title}>Resumo</Text>
                 </View>
@@ -123,11 +123,11 @@ export default function Resumo() {
 
                     <Text style={styles.subtitulo}>Local</Text>
 
-                    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                    <View style={{ flexDirection: 'row', gap: 4, }}>
                         <Text style={styles.descricao}>CEP: {'05876040'}</Text>
                         <Text style={styles.descricao}>RUA: {'Rua Antônio'} nº:{99}</Text>
                     </View>
-                    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                    <View style={{ flexDirection: 'row', gap: 4, }}>
                         <Text style={styles.descricao}>Bairro: {'Sem Bairro'}</Text>
                         <Text style={styles.descricao}>Cidade: {'São Paulo'} Estado:{'SP'}</Text>
                     </View>
