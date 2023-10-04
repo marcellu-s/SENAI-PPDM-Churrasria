@@ -90,13 +90,13 @@ return (
 
     <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
         <View>
-            <Text style={styles.textInputBairro}>Bairro: </Text>
+            <Text style={styles.textInput}>Bairro: </Text>
             <TextInput style={styles.inputBairro}
              onChangeText={setBairro}
              value={bairro}/>
         </View>
         <View>
-            <Text style={styles.textInputLocacao}>Valor locação *opcional: </Text>
+            <Text style={styles.textInput}>Valor locação(opcional): </Text>
             <TextInput style={styles.inputLocacao}
             onChangeText={setValorlocacao}
             value={valorLocacao}/>
@@ -105,9 +105,9 @@ return (
 </View>
 
 
- <TouchableOpacity style={styles.button} onPress={() => salvar()}>
- <Text style={styles.textButton}>Enviar</Text>
- </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={() => salvar()}>
+        <Text style={styles.textButton}>Enviar</Text>
+        </TouchableOpacity>
 
 
 </View>
@@ -156,10 +156,12 @@ const styles = StyleSheet.create({
         borderColor: '#999999',
         borderRadius: 10,
         height: 50,
-        width: 380,
+        width: 390,
         paddingLeft: 10,
-        marginTop: 15,
+        marginTop: 10,
+        marginRight: 5,
         marginLeft: 5,
+        fontSize: 15,
 
     },
 
@@ -168,10 +170,13 @@ const styles = StyleSheet.create({
         borderColor: '#999999',
         borderRadius: 10,
         height: 50,
-        width: 180,
+        width: 190,
         paddingLeft: 10,
         marginLeft: 5,
-        marginTop: 10,
+        marginRight: 5,
+        marginTop: 15,
+        fontSize: 15,
+
     },
     
     
@@ -182,8 +187,11 @@ const styles = StyleSheet.create({
         height: 50,
         width: 180,
         paddingLeft: 10,
-        marginLeft: 15,
-        marginTop: 10,
+        marginLeft: 5,
+        marginRight: 5,
+        marginTop: 15,
+        fontSize: 15,
+
         
 
     },
@@ -195,8 +203,10 @@ const styles = StyleSheet.create({
         height: 50,
         width: 300,
         paddingLeft: 10,
-        marginTop: 10,
+        marginTop: 15,
         marginLeft: 5,
+        fontSize: 15,
+
     },
 
     inputN: {
@@ -205,23 +215,14 @@ const styles = StyleSheet.create({
         borderColor: '#999999',
         borderRadius: 10,
         height: 50,
-        width: 60,
+        width: 70,
         paddingLeft: 10,
-        marginTop: 10,
+        marginTop: 15,
         marginLeft: 10,
         marginRight: 5,
+        fontSize: 15,
 
-    },
 
-   
-    inputLocacao: {
-        borderWidth: 1,
-        borderColor: '#999999',
-        borderRadius: 10,
-        height: 50,
-        width: 180,
-        paddingLeft: 10,
-        marginTop: 10,
     },
 
     inputBairro: {
@@ -229,11 +230,29 @@ const styles = StyleSheet.create({
         borderColor: '#999999',
         borderRadius: 10,
         height: 50,
-        width: 180,
+        width: 190,
         paddingLeft: 10,
-        marginTop: 10,
-        marginRight: 30,
+        marginTop: 20,
+        marginRight: 5,
+        marginLeft: 5, 
+        fontSize: 15,
+
     },
+   
+    inputLocacao: {
+        borderWidth: 1,
+        borderColor: '#999999',
+        borderRadius: 10,
+        height: 50,
+        width: 190,
+        paddingLeft: 10,
+        marginLeft: 5, 
+        marginRight: 5,
+        marginTop: 20,
+        fontSize: 15,
+
+    },
+
 
 
 
@@ -251,6 +270,8 @@ const styles = StyleSheet.create({
         marginLeft: 15,
         color: '#333333',
         fontWeight: 'bold',
+        
+
 
 
     },
@@ -258,9 +279,10 @@ const styles = StyleSheet.create({
     textInputUf:{
         marginTop: 15,
         fontSize: 15,
-        marginLeft: 22,
+        marginLeft: 20,
         color: '#333333',
         fontWeight: 'bold',
+
         
 
 
@@ -268,10 +290,10 @@ const styles = StyleSheet.create({
 
    
     textInputN:{
-        marginRight: 4,
+        marginRight: 5,
         marginTop: 20,
         fontSize: 15,
-        marginLeft: 5,
+        marginLeft: 20,
         color: '#333333',
         fontWeight: 'bold',
 
@@ -288,20 +310,9 @@ const styles = StyleSheet.create({
 
     },
     
-    textInputLocacao:{
-        
-        marginLeft: 10,
-        fontSize: 15,
-        marginLeft: 5,
-        color: '#333333',
-        fontWeight: 'bold',
-
-
-    },
-    
     textInputBairro:{
-        
-        marginRight: 10,
+        marginTop: 20,
+        marginLeft: 25,
         fontSize: 15,
         marginLeft: 5,
         color: '#333333',
@@ -310,9 +321,20 @@ const styles = StyleSheet.create({
 
     },
 
+    textInputLocacao:{
+        marginTop: 25,
+        marginLeft:20,
+        fontSize: 15,
+        marginLeft: 5,
+        color: '#333333',
+        fontWeight: 'bold',
+
+
+    },
 
     textInput: {
-        paddingTop: 10,
+        paddingTop: 8,
+        marginTop: 5,
         fontSize: 15,
         color: '#333333',
         fontWeight: 'bold',
