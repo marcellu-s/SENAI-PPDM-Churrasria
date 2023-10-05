@@ -25,3 +25,4 @@
 
 - Dispositivo com sistema operacional Android ou iOS.
 - Conexão com a internet para fazer o download do aplicativo.
+- Git e Node, caso queira rodar o aplicativo em um computador. Git para clonar o repositório e Node para rodar.
