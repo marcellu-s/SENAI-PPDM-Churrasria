@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import pino from '../../assets/icon.png';
@@ -7,25 +7,28 @@ import { CHAVE } from '@env';
 import { localidade } from '../../pages/Services';
 const Maps = (cep) => {
 
-    (async function () {
-
-        fetch('https://maps.googleapis.com/maps/api/geocode/json?address='.concat(cep).concat('&region=BR&key=').concat(CHAVE)).then((response) => response.json()).
-            then((json) => {
-                let geometry = json.results.map((i) => i.geometry.location);
-                let lat = geometry[0].lat;
-                let lgt = geometry[0].lng;
-                setLatitudeOrigem(lat);
-                setLongitudeOrigem(lgt)
-
-
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    })();
-
     const [latitudeOrigem, setLatitudeOrigem] = useState(-23.648057335940447)
     const [longitudeOrigem, setLongitudeOrigem] = useState(-46.721278295962286)
+
+    useEffect(() => {
+        (async function () {
+
+            fetch('https://maps.googleapis.com/maps/api/geocode/json?address='.concat(String(cep.cep)).concat('&region=BR&key=').concat(CHAVE)).then((response) => response.json()).
+                then((json) => {
+                    let geometry = json.results.map((i) => i.geometry.location);
+                    let lat = geometry[0].lat;
+                    let lgt = geometry[0].lng;
+                    setLatitudeOrigem(lat);
+                    setLongitudeOrigem(lgt)
+    
+    
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        })();
+    }, []);
+
 
     return (
         <View style={styles.container}>
@@ -38,7 +41,7 @@ const Maps = (cep) => {
                 {
                     localidade.map((coord) => {
                         return (
-                            <Marker coordinate={{latitude: coord.latitude, longitude: coord.longitude }}>
+                            <Marker key={Math.random()} coordinate={{latitude: coord.latitude, longitude: coord.longitude }}>
                                 <View style={{ flexDirection: 'column' }}>
                                     <Image source={swift} style={styles.mapMarkerImage} />
                                 </View>
