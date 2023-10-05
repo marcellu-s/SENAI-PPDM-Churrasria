@@ -7,7 +7,7 @@
 ## Funcionalidades
 
 - Calcula a quantidade de carne por pessoa, levando em consideração diferentes tipos de carne (picanha, frango, linguiça, etc.).
-- Calcula a quantidade de acompanhamentos (arroz, feijão, saladas, etc.) por pessoa.
+- Calcula a quantidade de acompanhamentos (arroz, farofa, salada de maionese, etc.) por pessoa.
 - Calcula a quantidade de bebidas (cerveja, refrigerante, água, etc.) por pessoa.
 
 ## Como usar
