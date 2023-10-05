@@ -5,7 +5,7 @@ export default function Resumo() {
 
     const navigation = useNavigation();
 
-    const dados = useRoute().params;
+    const [ dados, infoEvento ] = useRoute().params;
     const itens = dados.itens;
 
     return (
@@ -120,20 +120,31 @@ export default function Resumo() {
                         <Text style={styles.descricao}>Valor p/ Pessoa S/ Criança</Text>
                         <Text style={styles.vk}>R${dados.valorPorPessoaSemCrianca}</Text>
                     </View>
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                        <Text style={styles.descricao}>Valor da locação do evento</Text>
+                        <Text style={styles.vk}>R${infoEvento.valorLocacao ? Number(infoEvento.valorLocacao).toFixed(2) : 'N/A'}</Text>
+                    </View>
 
                     <Text style={styles.subtitulo}>Local</Text>
 
-                    <View style={{ flexDirection: 'row', gap: 4, }}>
-                        <Text style={styles.descricao}>CEP: {'05876040'}</Text>
-                        <Text style={styles.descricao}>RUA: {'Rua Antônio'} nº:{99}</Text>
+                    <View style={{ gap: 4, }}>
+                        <Text style={styles.descricao}>CEP: {infoEvento.cep}</Text>
+                        <Text style={styles.descricao}>Rua: {infoEvento.endereco} Nº:{infoEvento.numero}</Text>
                     </View>
-                    <View style={{ flexDirection: 'row', gap: 4, }}>
-                        <Text style={styles.descricao}>Bairro: {'Sem Bairro'}</Text>
-                        <Text style={styles.descricao}>Cidade: {'São Paulo'} Estado:{'SP'}</Text>
+                    <View style={{ gap: 4, }}>
+                        <Text style={styles.descricao}>Bairro: {infoEvento.bairro}</Text>
+                        <Text style={styles.descricao}>Cidade: {infoEvento.cidade} Estado:{infoEvento.uf}</Text>
+                    </View>
+
+                    <Text style={styles.subtitulo}>Organizador</Text>
+
+                    <View style={{ gap: 4, }}>
+                        <Text style={styles.descricao}>Nome: {infoEvento.nome}</Text>
+                        <Text style={styles.descricao}>Telefone de contato: {infoEvento.telefone}</Text>
                     </View>
                 </View>
                 <View style={styles.local}>
-                    <Maps/>
+                    <Maps cep={infoEvento.cep} />
                 </View>
                 
                 <View style={{ marginTop: 12 }}>

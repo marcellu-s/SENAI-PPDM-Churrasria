@@ -5,10 +5,10 @@ import pino from '../../assets/icon.png';
 import swift from '../../assets/logo_swift.png';
 import { CHAVE } from '@env';
 import { localidade } from '../../pages/Services';
-const Maps = () => {
+const Maps = (cep) => {
 
     (async function () {
-        let cep = '04755010';
+
         fetch('https://maps.googleapis.com/maps/api/geocode/json?address='.concat(cep).concat('&region=BR&key=').concat(CHAVE)).then((response) => response.json()).
             then((json) => {
                 let geometry = json.results.map((i) => i.geometry.location);

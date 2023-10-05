@@ -1,4 +1,4 @@
-export default function calculo (json, homem, mulher, crianca) {
+export default function calculo (json, homem, mulher, crianca, valorLocacao=0) {
 
     let total = {};
     const totalPessoas = homem + mulher + crianca;
@@ -146,6 +146,12 @@ export default function calculo (json, homem, mulher, crianca) {
             })
         }
     });
+    
+    if (valorLocacao) {
+
+        precoTotal += Number(valorLocacao);
+    }
+
 
     return {
         precoFinal: precoTotal.toFixed(2),

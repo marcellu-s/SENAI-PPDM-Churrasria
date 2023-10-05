@@ -1,369 +1,182 @@
 import { useState } from 'react';
-import {View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-
+import {View, Text, StyleSheet, TextInput, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native';
+import { useNavigation } from "@react-navigation/native";
 
 
 export default function Formulario(){
-    const[nome, setNome] = useState('');
-    const[telefone, setTelefone] = useState('');
-    const[cep, setCEP] = useState('');
-    const[uf, setUF] = useState('');
-    const[endereco, setEndereco] = useState('');
-    const[numero, setNumero] = useState('');
-    const[bairro, setBairro] = useState('');
-    const[valorLocacao, setValorlocacao] = useState('');
+
+    const navigation = useNavigation();
 
 
-
-
+    const [ cidade, setCidade ] = useState('');
+    const [ uf, setUF ] = useState('');
+    const [ endereco, setEndereco ] = useState('');
+    const [ bairro, setBairro ] = useState('');
+    const [ nome, setNome ] = useState('');
+    const [ telefone, setTelefone ] = useState('');
+    const [ numero, setNumero ] = useState('');
+    const [ valorLocacao, setValorLocacao ] = useState('');
+    const [ cep, setCep ] = useState('');
 
     function salvar(){
-        if( nome === '' && telefone ==='' && cep === '' && uf ==='' && endereco ==='' && numero === '' && bairro ==='' ){
-            alert('Por favor, preencha os campos.')
+        if( nome === '' && telefone ==='' && cep === '' && uf ==='' && cidade === '' && endereco ==='' && numero === '' && bairro ==='' ){
+            alert('Por favor, preencha todos os campos com *.')
             return;
         }
 
-        const data = {
-            nome,
-            telefone,
-            cep,
-            uf,
-            endereco,
-            numero,
-            bairro,
-            valorLocacao
+        const infoEvento = {
+            nome, telefone, numero, valorLocacao, cep, cidade, uf, endereco, bairro
+        };
+        
+        navigation.navigate('Calcular', infoEvento);
+    }
+
+    async function getAddressViaCep(cep) {
+
+        const valid = /^[0-9]{8}$/;
+
+        cep = cep.replace(/\D/gm, '');
+
+        if (valid.test(cep)) {
+
+            const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+
+            const data = await response.json();
+
+            setCidade(data.localidade);
+            setBairro(data.bairro);
+            setEndereco(data.logradouro);
+            setUF(data.uf);
         }
-        console.log (data);
 
     }
 
 
-return (
-<View style={styles.container}>
-
-
-<Text style={styles.title1}>Organizador do evento</Text>
-
-
-<Text style={styles.title}>Por favor, preencha as informações abaixo ;)</Text>
-
-
-<View>
-<Text style={styles.textInput}>Nome: </Text>
-    <TextInput style={styles.input}
-     onChangeText={setNome}
-     value={nome}/>
-    
-    <Text style={styles.textInput}>Telefone: </Text>
-    <TextInput style={styles.input}
-     onChangeText={setTelefone}
-     value={telefone}/>
-
-     <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-        <View>
-            <Text style={styles.textInputCep}>CEP: </Text>
-            <TextInput style={styles.inputCep}
-            onChangeText={setCEP}
-            value={cep}/>
-        </View>
-        <View>
-            <Text style={styles.textInputUf}>UF: </Text>
-            <TextInput style={styles.inputUf}
-            onChangeText={setUF}
-            value={uf}/>
-        </View>
-     </View>
-    <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-        <View>
-            <Text style={styles.textInputEndereco}>Endereço: </Text>
-            <TextInput style={styles.inputEndereco}
-            onChangeText={setEndereco}
-            value={endereco}/>
-        </View>
-        <View>
-            <Text style={styles.textInputN}>N°: </Text>
-            <TextInput style={styles.inputN}
-            onChangeText={setNumero}
-            value={numero}/>
-        </View>
-    </View>
-
-    <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-        <View>
-            <Text style={styles.textInput}>Bairro: </Text>
-            <TextInput style={styles.inputBairro}
-             onChangeText={setBairro}
-             value={bairro}/>
-        </View>
-        <View>
-            <Text style={styles.textInput}>Valor locação(opcional): </Text>
-            <TextInput style={styles.inputLocacao}
-            onChangeText={setValorlocacao}
-            value={valorLocacao}/>
-        </View>
-    </View>
-</View>
-
-
-        <TouchableOpacity style={styles.button} onPress={() => salvar()}>
-        <Text style={styles.textButton}>Enviar</Text>
-        </TouchableOpacity>
-
-
-</View>
-
-
-);
+    return (
+        <SafeAreaView style={{ flex: 1 }}>
+            <ScrollView style={{ padding: 20 }}>
+                <View>
+                    <Text style={{ fontSize: 32, fontWeight: 'bold', paddingTop: 20 }}>Organizador do evento</Text>
+                    <View style={{ width: 75, height: 10, backgroundColor: '#EF233C'}}>
+                        <Text></Text>
+                    </View>
+                </View>
+                <View style={{ marginTop: 20 }}>
+                    <Text style={styles.subtitle}>Por favor, preencha as informações abaixo ;)</Text>
+                </View>
+                <View style={styles.inputWrapper}>
+                    <View style={styles.inputContainer}>
+                        <Text style={styles.label}>*Nome:</Text>
+                        <TextInput style={styles.input} onChangeText={(value) => setNome(value)} placeholder='Informe seu nome' />
+                    </View>
+                    <View style={styles.inputContainer}>
+                        <Text style={styles.label}>*Telefone:</Text>
+                        <TextInput keyboardType="numeric" style={styles.input} onChangeText={(value) => setTelefone(value)} placeholder='DDD XXXXX-XXXX' />
+                    </View>
+                    <View style={styles.inputWrapperDouble}>
+                        <View style={styles.inputContainerDouble}>
+                            <Text style={styles.label}>*CEP:</Text>
+                            <TextInput keyboardType="numeric" onChangeText={(value) => { setCep(value); getAddressViaCep(value); }} style={styles.input} placeholder='XXXXX-XXX' />
+                        </View>
+                        <View style={styles.inputContainerDouble}>
+                            <Text style={styles.label}>*Cidade:</Text>
+                            <TextInput value={cidade} style={styles.input} placeholder='...' editable={false} />
+                        </View>
+                    </View>
+                    <View style={styles.inputWrapperDouble}>
+                        <View style={styles.inputContainerDouble}>
+                            <Text style={styles.label}>*Bairro:</Text>
+                            <TextInput value={bairro} style={styles.input} placeholder='...' editable={false} />
+                        </View>
+                        <View style={styles.inputContainerDouble}>
+                            <Text style={styles.label}>*UF:</Text>
+                            <TextInput value={uf} style={styles.input} placeholder='...' editable={false} />
+                        </View>
+                    </View>
+                    <View style={styles.inputWrapperDouble}>
+                        <View style={styles.inputContainerDouble}>
+                            <Text style={styles.label}>*Rua:</Text>
+                            <TextInput value={uf} style={styles.input} placeholder='...' editable={false} />
+                        </View>
+                        <View style={styles.inputContainerDouble}>
+                            <Text style={styles.label}>*Nº:</Text>
+                            <TextInput keyboardType="numeric" style={styles.input} onChangeText={(value) => setNumero(value) } placeholder='Número do local' />
+                        </View>
+                    </View>
+                    <View style={styles.inputContainer}>
+                        <Text style={styles.label}>Preço da locação: (Opcional)</Text>
+                        <TextInput keyboardType="numeric" style={styles.input} onChangeText={(value) => setValorLocacao(value) } placeholder='Informe o preço do local do evento, caso existir' />
+                    </View>
+                </View>
+                <View style={{ marginVertical: 20, paddingVertical: 20 }}>
+                    <TouchableOpacity style={styles.button} onPress={() => salvar()}>
+                        <Text style={{ fontSize: 24, color: '#fff', textAlign: 'center', fontWeight: 'bold' }}>Enviar</Text>
+                    </TouchableOpacity>
+                </View>
+            </ScrollView>
+        </SafeAreaView>
+    );
 }
 
-
-
-
 const styles = StyleSheet.create({
-    container: {
-    flex: 1,
-    backgroundColor:'#FFFFFF',
-    paddingHorizontal: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-        
+
+    subtitle: {
+        fontSize: 24,
+        fontWeight: '500',
+        textAlign: 'center'
     },
 
-
-    title: {
-        fontSize: 28,       
-        marginTop:20,
-        marginLeft: 35,
-        marginBottom: 25,
-        color: '#333333',
-        fontWeight: 'bold',
-        marginLeft: 5,
-
+    inputWrapper: {
+        marginTop: 20,
+        gap: 12
     },
 
-    
-    title1: {
-        fontSize: 32,
-        marginTop:5,
-        marginBottom: 35,
-        color: '#000000',
-        fontWeight: 'bold',
+    inputContainer: {
+        gap: 6,
+    },
 
+    inputWrapperDouble: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        gap: 12
+    },  
+
+    label: {
+        fontSize: 16,
+        fontWeight: '500'
     },
 
     input: {
         borderWidth: 1,
-        borderColor: '#999999',
-        borderRadius: 10,
-        height: 50,
-        width: 390,
-        paddingLeft: 10,
-        marginTop: 10,
-        marginRight: 5,
-        marginLeft: 5,
-        fontSize: 15,
-
+        borderColor: '#000',
+        borderRadius: 8,
+        paddingHorizontal: 12,
+        paddingVertical: 6,
+        color: '#000',
     },
 
-    inputCep: {
-        borderWidth: 1,
-        borderColor: '#999999',
-        borderRadius: 10,
-        height: 50,
-        width: 190,
-        paddingLeft: 10,
-        marginLeft: 5,
-        marginRight: 5,
-        marginTop: 15,
-        fontSize: 15,
-
-    },
-    
-    
-    inputUf: {
-        borderWidth: 1,
-        borderColor: '#999999',
-        borderRadius: 10,
-        height: 50,
-        width: 180,
-        paddingLeft: 10,
-        marginLeft: 5,
-        marginRight: 5,
-        marginTop: 15,
-        fontSize: 15,
-
-        
-
-    },
-    
-    inputEndereco: {
-        borderWidth: 1,
-        borderColor: '#999999',
-        borderRadius: 10,
-        height: 50,
-        width: 300,
-        paddingLeft: 10,
-        marginTop: 15,
-        marginLeft: 5,
-        fontSize: 15,
-
-    },
-
-    inputN: {
-        
-        borderWidth: 1,
-        borderColor: '#999999',
-        borderRadius: 10,
-        height: 50,
-        width: 70,
-        paddingLeft: 10,
-        marginTop: 15,
-        marginLeft: 10,
-        marginRight: 5,
-        fontSize: 15,
-
-
-    },
-
-    inputBairro: {
-        borderWidth: 1,
-        borderColor: '#999999',
-        borderRadius: 10,
-        height: 50,
-        width: 190,
-        paddingLeft: 10,
-        marginTop: 20,
-        marginRight: 5,
-        marginLeft: 5, 
-        fontSize: 15,
-
-    },
-   
-    inputLocacao: {
-        borderWidth: 1,
-        borderColor: '#999999',
-        borderRadius: 10,
-        height: 50,
-        width: 190,
-        paddingLeft: 10,
-        marginLeft: 5, 
-        marginRight: 5,
-        marginTop: 20,
-        fontSize: 15,
-
-    },
-
-
-
-
-    div:{
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
-        marginTop: 20,
-
-    },
-
-    textInputCep:{
-        marginTop: 15,
-        fontSize: 15,
-        marginLeft: 15,
-        color: '#333333',
-        fontWeight: 'bold',
-        
-
-
-
-    },
-
-    textInputUf:{
-        marginTop: 15,
-        fontSize: 15,
-        marginLeft: 20,
-        color: '#333333',
-        fontWeight: 'bold',
-
-        
-
-
-    },
-
-   
-    textInputN:{
-        marginRight: 5,
-        marginTop: 20,
-        fontSize: 15,
-        marginLeft: 20,
-        color: '#333333',
-        fontWeight: 'bold',
-
-
-    },
-
-    textInputEndereco:{
-        marginTop: 20,
-        fontSize: 15,
-        marginLeft: 15,
-        color: '#333333',
-        fontWeight: 'bold',
-
-
-    },
-    
-    textInputBairro:{
-        marginTop: 20,
-        marginLeft: 25,
-        fontSize: 15,
-        marginLeft: 5,
-        color: '#333333',
-        fontWeight: 'bold',
-
-
-    },
-
-    textInputLocacao:{
-        marginTop: 25,
-        marginLeft:20,
-        fontSize: 15,
-        marginLeft: 5,
-        color: '#333333',
-        fontWeight: 'bold',
-
-
-    },
-
-    textInput: {
-        paddingTop: 8,
-        marginTop: 5,
-        fontSize: 15,
-        color: '#333333',
-        fontWeight: 'bold',
-        marginLeft: 15,
-
-    },
+    inputContainerDouble: {
+        flexGrow: 1
+    },  
 
     button: {
-        paddingTop: 10,
-        alignItems: 'center',
-        textAlign:'justify',
-        marginTop: 50,
-        height: 50,
-        width: 220,
+        width: '100%',
         backgroundColor: '#EF233C',
-        borderRadius: 10,
-        color: '#FFFFFF',
-
-    },
-
-    textButton:{
-        color:'#FFFFFF',
-        fontWeight: 'bold',
-        letterSpacing: 1,
-        fontSize: 18,
-
-    },
-
+        padding: 12,
+        borderRadius: 8
+    }
     
+    // inputLocacao: {
+    //     borderWidth: 1,
+    //     borderColor: '#999999',
+    //     borderRadius: 10,
+    //     height: 50,
+    //     width: 190,
+    //     paddingLeft: 10,
+    //     marginLeft: 5, 
+    //     marginRight: 5,
+    //     marginTop: 20,
+    //     fontSize: 15,
 
-
+    // },
 });

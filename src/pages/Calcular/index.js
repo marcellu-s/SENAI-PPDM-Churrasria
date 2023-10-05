@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { View, Text, SafeAreaView, StyleSheet, ScrollView, TouchableOpacity, Modal, Image } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { CheckBox } from "@rneui/themed";
 import { Participantes } from "../../components/Participantes";
 import { listaAcompanhamento, listaCortes, listaSuprimento, listaBebidas, modalDataria, receitaria } from "../Services";
@@ -25,6 +25,7 @@ export default function Calcular() {
     const [ bebida, setBebida ] = useState(listaBebidas);
     let bebidaTemp = listaBebidas;
 
+    const infoEvento = useRoute().params;
 
     function toggleCheckbox(id, lista) {
 
@@ -105,7 +106,7 @@ export default function Calcular() {
             return;
         }
 
-        const dados = calculo(pegarTodosDados(), homem, mulher, crianca);
+        const dados = calculo(pegarTodosDados(), homem, mulher, crianca, infoEvento.valorLocacao);
 
         if (dados.itens.cortes.length == 0) {
             alert("Selecione ao menos um corte a ser servido.");
@@ -115,7 +116,7 @@ export default function Calcular() {
             return;
         }
 
-        navigation.navigate('Resumo', dados);
+        navigation.navigate('Resumo', [ dados, infoEvento ]);
     }
 
     const [modalVisibility, setVisibility] = useState(false);
