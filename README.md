@@ -21,8 +21,21 @@
 7. Clique no botão "Calcular" para obter os resultados.
 8. Os resultados serão exibidos na tela, indicando a quantidade necessária de cada item para o churrasco.
 
-## Requisitos
+## Instalação e Execução
+Siga os passos abaixo para clonar, instalar dependências e executar o aplicativo:
 
-- Dispositivo com sistema operacional Android ou iOS.
-- Conexão com a internet para fazer o download do aplicativo.
-- Git, Node e Expo Go, caso queira rodar o aplicativo em um computador. Git para clonar o repositório e Node e Expo Go para rodar.
+## Pré-requisitos
+- Node.js: Certifique-se de ter o [Node.js](https://nodejs.org/) instalado em sua máquina.
+
+```bash
+# Clone este repositório
+git clone https://github.com/marcellu-s/SENAI-PPDM-churrasria.git
+
+# Navegue para o diretório do projeto
+cd SENAI-PPDM-churrasria
+
+# Instale as dependências do projeto
+npm install
+
+# Inicie o aplicativo
+npm start
