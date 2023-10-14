@@ -24,7 +24,7 @@
 ## Instalação e Execução
 Siga os passos abaixo para clonar, instalar dependências e executar o aplicativo:
 
-## Pré-requisitos
+### Pré-requisitos
 - Node.js: Certifique-se de ter o [Node.js](https://nodejs.org/) instalado em sua máquina.
 
 ```bash
